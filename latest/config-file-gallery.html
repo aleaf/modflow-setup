@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Configuration File Gallery &mdash; modflow-setup 0.post294+gd31ec37 documentation</title>
+  <title>Configuration File Gallery &mdash; modflow-setup 0.post362+g664ccd7 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/plot_directive.css" type="text/css" />
@@ -16,6 +16,7 @@
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/clipboard.min.js"></script>
         <script src="_static/copybutton.js"></script>
@@ -35,7 +36,7 @@
             <a href="index.html" class="icon icon-home"> modflow-setup
           </a>
               <div class="version">
-                0.post294+gd31ec37
+                0.post362+g664ccd7
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -132,10 +133,10 @@
 }
 </style>
 <section id="configuration-file-gallery">
-<h1>Configuration File Gallery<a class="headerlink" href="#configuration-file-gallery" title="Permalink to this headline">¶</a></h1>
+<h1>Configuration File Gallery<a class="headerlink" href="#configuration-file-gallery" title="Permalink to this heading">¶</a></h1>
 <p>Below are example (valid) configuration files from the modflow-setup test suite. The yaml files and the datasets they reference can be found under <code class="docutils literal notranslate"><span class="pre">modflow-setup/mfsetup/tests/data/</span></code>.</p>
 <section id="shellmound-test-case">
-<h2>Shellmound test case<a class="headerlink" href="#shellmound-test-case" title="Permalink to this headline">¶</a></h2>
+<h2>Shellmound test case<a class="headerlink" href="#shellmound-test-case" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>13 layer MODFLOW-6 model with no parent model</p></li>
 <li><p>9 layers specified with raster surfaces; with remaining 4 layers subdividing the raster surfaces</p></li>
@@ -422,7 +423,7 @@
 <span class="linenos">274</span><span class="w">      </span><span class="nt">routing_column</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;TOCOMID&#39;</span><span class="w"></span>
 <span class="linenos">275</span><span class="w">  </span><span class="nt">sfrmaker_options</span><span class="p">:</span><span class="w"></span>
 <span class="linenos">276</span><span class="w">    </span><span class="c1"># the sfrmaker_options: block can include arguments to the Lines.to_sfr method in SFRmaker</span><span class="w"></span>
-<span class="linenos">277</span><span class="w">    </span><span class="c1"># (see https://usgs.github.io/sfrmaker/api/sfrmaker.lines.html#sfrmaker.lines.Lines.to_sfr)</span><span class="w"></span>
+<span class="linenos">277</span><span class="w">    </span><span class="c1"># (see https://doi-usgs.github.io/sfrmaker/api/sfrmaker.lines.html#sfrmaker.lines.Lines.to_sfr)</span><span class="w"></span>
 <span class="linenos">278</span><span class="w">    </span><span class="c1"># or other options such as set_streambed_top_elevations_from_dem (see pleasant examples)</span><span class="w"></span>
 <span class="linenos">279</span><span class="w">    </span><span class="c1"># or to_riv (shellmound_tmr example)</span><span class="w"></span>
 <span class="linenos">280</span><span class="w">    </span><span class="nt">one_reach_per_cell</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span><span class="w"> </span><span class="c1">#  consolidate SFR reaches to one per i, j location</span><span class="w"></span>
@@ -585,7 +586,7 @@
 </div>
 </section>
 <section id="shellmound-tmr-inset-test-case">
-<h2>Shellmound TMR inset test case<a class="headerlink" href="#shellmound-tmr-inset-test-case" title="Permalink to this headline">¶</a></h2>
+<h2>Shellmound TMR inset test case<a class="headerlink" href="#shellmound-tmr-inset-test-case" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>13 layer MODFLOW-6 Telescopic Mesh Refinement (TMR) model with a MODFLOW-6 parent model</p></li>
 <li><p>1:1 layer mapping between parent and TMR inset (default)</p></li>
@@ -617,114 +618,117 @@
 <span class="linenos"> 18</span><span class="w">             </span><span class="s">&#39;rch&#39;</span><span class="p p-Indicator">,</span><span class="w"></span>
 <span class="linenos"> 19</span><span class="w">             </span><span class="s">&#39;sfr&#39;</span><span class="p p-Indicator">,</span><span class="w"></span>
 <span class="linenos"> 20</span><span class="w">             </span><span class="s">&#39;wel&#39;</span><span class="p p-Indicator">,</span><span class="w"></span>
-<span class="linenos"> 21</span><span class="w">             </span><span class="s">&#39;chd&#39;</span><span class="w"></span>
-<span class="linenos"> 22</span><span class="w">  </span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="linenos"> 23</span><span class="w">  </span><span class="nt">external_path</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;external/&#39;</span><span class="w"></span>
-<span class="linenos"> 24</span><span class="w">  </span><span class="nt">relative_external_filepaths</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span><span class="w"></span>
-<span class="linenos"> 25</span>
-<span class="linenos"> 26</span><span class="nt">parent</span><span class="p">:</span><span class="w"></span>
-<span class="linenos"> 27</span><span class="w">  </span><span class="c1"># argments to flopy.modflow.Modflow.load for parent model</span><span class="w"></span>
-<span class="linenos"> 28</span><span class="w">  </span><span class="nt">namefile</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;shellmound.nam&#39;</span><span class="w"></span>
-<span class="linenos"> 29</span><span class="w">  </span><span class="nt">model_ws</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;shellmound/tmr_parent&#39;</span><span class="w"></span>
-<span class="linenos"> 30</span><span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;mf6&#39;</span><span class="w"></span>
-<span class="linenos"> 31</span><span class="w">  </span><span class="nt">default_source_data</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span><span class="w">  </span><span class="c1"># if True, packages and variables that are omitted will be pulled from this model</span><span class="w"></span>
-<span class="linenos"> 32</span><span class="w">  </span><span class="nt">copy_stress_periods</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;all&#39;</span><span class="w"></span>
-<span class="linenos"> 33</span><span class="w">  </span><span class="nt">start_date_time</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;1998-04-01&#39;</span><span class="w"></span>
-<span class="linenos"> 34</span><span class="w">  </span><span class="c1"># inset_layer_mapping assumed to be 1:1 if not entered</span><span class="w"></span>
-<span class="linenos"> 35</span><span class="w">  </span><span class="nt">length_units</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;meters&#39;</span><span class="w"></span>
-<span class="linenos"> 36</span><span class="w">  </span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;days&#39;</span><span class="w"></span>
-<span class="linenos"> 37</span><span class="w">  </span><span class="c1"># parent model lower left corner location and CRS</span><span class="w"></span>
-<span class="linenos"> 38</span><span class="w">  </span><span class="c1"># (overrides any information in name file)</span><span class="w"></span>
-<span class="linenos"> 39</span><span class="w">  </span><span class="nt">SpatialReference</span><span class="p">:</span><span class="w"></span>
-<span class="linenos"> 40</span><span class="w">    </span><span class="nt">xoff</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">500955</span><span class="w"></span>
-<span class="linenos"> 41</span><span class="w">    </span><span class="nt">yoff</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1175285</span><span class="w"></span>
-<span class="linenos"> 42</span><span class="w">    </span><span class="nt">epsg</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5070</span><span class="w"></span>
-<span class="linenos"> 43</span>
-<span class="linenos"> 44</span><span class="nt">setup_grid</span><span class="p">:</span><span class="w"></span>
-<span class="linenos"> 45</span><span class="w">  </span><span class="nt">xoff</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">501405</span><span class="w"> </span><span class="c1"># lower left x-coordinate</span><span class="w"></span>
-<span class="linenos"> 46</span><span class="w">  </span><span class="nt">yoff</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1175835</span><span class="w"> </span><span class="c1"># lower left y-coordinate</span><span class="w"></span>
-<span class="linenos"> 47</span><span class="w">  </span><span class="nt">rotation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.</span><span class="w"></span>
-<span class="linenos"> 48</span><span class="w">  </span><span class="nt">epsg</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5070</span><span class="w"></span>
-<span class="linenos"> 49</span><span class="w">  </span><span class="nt">snap_to_NHG</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span><span class="w"></span>
-<span class="linenos"> 50</span>
-<span class="linenos"> 51</span><span class="nt">dis</span><span class="p">:</span><span class="w"></span>
-<span class="linenos"> 52</span><span class="w">  </span><span class="nt">remake_top</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span><span class="w"></span>
-<span class="linenos"> 53</span><span class="w">  </span><span class="nt">options</span><span class="p">:</span><span class="w"></span>
-<span class="linenos"> 54</span><span class="w">    </span><span class="nt">length_units</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;meters&#39;</span><span class="w"></span>
-<span class="linenos"> 55</span><span class="w">  </span><span class="nt">dimensions</span><span class="p">:</span><span class="w"></span>
-<span class="linenos"> 56</span><span class="w">    </span><span class="nt">nlay</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">13</span><span class="w"></span>
-<span class="linenos"> 57</span><span class="w">    </span><span class="nt">nrow</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span><span class="w"></span>
-<span class="linenos"> 58</span><span class="w">    </span><span class="nt">ncol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">35</span><span class="w"></span>
-<span class="linenos"> 59</span><span class="w">  </span><span class="nt">griddata</span><span class="p">:</span><span class="w"></span>
-<span class="linenos"> 60</span><span class="w">    </span><span class="nt">delr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000.</span><span class="w"></span>
-<span class="linenos"> 61</span><span class="w">    </span><span class="nt">delc</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000.</span><span class="w"></span>
-<span class="linenos"> 62</span><span class="w">  </span><span class="nt">source_data</span><span class="p">:</span><span class="w"></span>
-<span class="linenos"> 63</span><span class="w">    </span><span class="nt">top</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">from_parent</span><span class="w"></span>
-<span class="linenos"> 64</span><span class="w">    </span><span class="nt">botm</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">from_parent</span><span class="w"></span>
-<span class="linenos"> 65</span><span class="w">    </span><span class="nt">idomain</span><span class="p">:</span><span class="w"></span>
-<span class="linenos"> 66</span><span class="w">      </span><span class="nt">filename</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;shellmound/tmr_parent/gis/irregular_boundary.shp&#39;</span><span class="w"></span>
-<span class="linenos"> 67</span><span class="w">  </span><span class="nt">minimum_layer_thickness</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"> </span><span class="c1"># layers less than this thickness are converted to vertical pass-through cells</span><span class="w"></span>
-<span class="linenos"> 68</span><span class="w">  </span><span class="nt">drop_thin_cells</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span><span class="w"></span>
-<span class="linenos"> 69</span>
-<span class="linenos"> 70</span><span class="nt">tdis</span><span class="p">:</span><span class="w"></span>
-<span class="linenos"> 71</span><span class="w">  </span><span class="nt">options</span><span class="p">:</span><span class="w"></span>
-<span class="linenos"> 72</span><span class="w">    </span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;days&#39;</span><span class="w"></span>
-<span class="linenos"> 73</span><span class="w">    </span><span class="nt">start_date_time</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;1998-04-01&#39;</span><span class="w"></span>
-<span class="linenos"> 74</span><span class="w">  </span><span class="nt">perioddata</span><span class="p">:</span><span class="w"></span>
-<span class="linenos"> 75</span><span class="w">    </span><span class="c1"># time discretization info can be specified directly under the perioddata key</span><span class="w"></span>
-<span class="linenos"> 76</span><span class="w">    </span><span class="c1"># or in groups of stress periods that are discretized in a similar way</span><span class="w"></span>
-<span class="linenos"> 77</span><span class="w">    </span><span class="nt">group 1</span><span class="p">:</span><span class="w"> </span><span class="c1"># initial steady-state period (steady specified under sto package)</span><span class="w"></span>
-<span class="linenos"> 78</span><span class="w">      </span><span class="c1">#perlen: 1 # Specify perlen as an int or list of lengths in model units, or perlen=None and 3 of start_date, end_date, nper and/or freq.&quot;</span><span class="w"></span>
-<span class="linenos"> 79</span><span class="w">      </span><span class="nt">nper</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"></span>
-<span class="linenos"> 80</span><span class="w">      </span><span class="nt">nstp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"></span>
-<span class="linenos"> 81</span><span class="w">      </span><span class="nt">tsmult</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"></span>
-<span class="linenos"> 82</span><span class="w">      </span><span class="nt">steady</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span><span class="w">  </span><span class="c1"># &quot;steady&quot; can be entered here; otherwise the global entry specified in the sto package is used as the default</span><span class="w"></span>
-<span class="linenos"> 83</span><span class="w">      </span><span class="c1"># oc_saverecord: can also be specified by group here; otherwise the global entry specified in the oc package is used as the default</span><span class="w"></span>
-<span class="linenos"> 84</span><span class="w">    </span><span class="nt">group 2</span><span class="p">:</span><span class="w"> </span><span class="c1"># single long period for spin-up of pumping</span><span class="w"></span>
-<span class="linenos"> 85</span><span class="w">      </span><span class="nt">start_date_time</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;1998-04-01&#39;</span><span class="w">  </span><span class="c1"># can be specified by group, otherwise start_date_time for the model (under tdis: options) will be used.</span><span class="w"></span>
-<span class="linenos"> 86</span><span class="w">      </span><span class="nt">end_date_time</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2007-04-01&#39;</span><span class="w">  </span><span class="c1"># model ends at midnight on this date (2007-03-31 would be the last day simulated)</span><span class="w"></span>
-<span class="linenos"> 87</span><span class="w">      </span><span class="nt">nper</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"></span>
-<span class="linenos"> 88</span><span class="w">      </span><span class="nt">nstp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"></span>
-<span class="linenos"> 89</span><span class="w">      </span><span class="nt">tsmult</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.5</span><span class="w"></span>
-<span class="linenos"> 90</span><span class="w">      </span><span class="nt">steady</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="linenos"> 91</span><span class="w">    </span><span class="nt">group 3</span><span class="p">:</span><span class="w"></span>
-<span class="linenos"> 92</span><span class="w">      </span><span class="nt">start_date_time</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2007-04-01&#39;</span><span class="w"></span>
-<span class="linenos"> 93</span><span class="w">      </span><span class="nt">end_date_time</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2015-09-30&#39;</span><span class="w">  </span><span class="c1"># model ends at midnight on this date (2015-09-30 would be the last day simulated)</span><span class="w"></span>
-<span class="linenos"> 94</span><span class="w">      </span><span class="nt">freq</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;6MS&#39;</span><span class="w"> </span><span class="c1"># same as argument to pandas.date_range; (see &quot;Offset Aliases&quot; at https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#timeseries-offset-aliases)</span><span class="w"></span>
-<span class="linenos"> 95</span><span class="w">      </span><span class="nt">nstp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span><span class="w"></span>
-<span class="linenos"> 96</span><span class="w">      </span><span class="nt">tsmult</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.5</span><span class="w"></span>
-<span class="linenos"> 97</span><span class="w">      </span><span class="nt">steady</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
-<span class="linenos"> 98</span>
-<span class="linenos"> 99</span><span class="nt">sfr</span><span class="p">:</span><span class="w"></span>
-<span class="linenos">100</span><span class="w">  </span><span class="nt">options</span><span class="p">:</span><span class="w"></span>
-<span class="linenos">101</span><span class="w">    </span><span class="nt">save_flows</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span><span class="w"></span>
-<span class="linenos">102</span><span class="w">  </span><span class="nt">source_data</span><span class="p">:</span><span class="w"></span>
-<span class="linenos">103</span><span class="w">    </span><span class="nt">flowlines</span><span class="p">:</span><span class="w"></span>
-<span class="linenos">104</span><span class="w">      </span><span class="nt">filename</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;shellmound/shps/flowlines.shp&#39;</span><span class="w"></span>
-<span class="linenos">105</span><span class="w">      </span><span class="nt">id_column</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;COMID&#39;</span><span class="w">  </span><span class="c1"># arguments to sfrmaker.Lines.from_shapefile</span><span class="w"></span>
-<span class="linenos">106</span><span class="w">      </span><span class="nt">routing_column</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;tocomid&#39;</span><span class="w"></span>
-<span class="linenos">107</span><span class="w">      </span><span class="nt">width1_column</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;width1&#39;</span><span class="w"></span>
-<span class="linenos">108</span><span class="w">      </span><span class="nt">width2_column</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;width2&#39;</span><span class="w"></span>
-<span class="linenos">109</span><span class="w">      </span><span class="nt">up_elevation_column</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;elevupsmo&#39;</span><span class="w"></span>
-<span class="linenos">110</span><span class="w">      </span><span class="nt">dn_elevation_column</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;elevdnsmo&#39;</span><span class="w"></span>
-<span class="linenos">111</span><span class="w">      </span><span class="nt">name_column</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;GNIS_NAME&#39;</span><span class="w"></span>
-<span class="linenos">112</span><span class="w">      </span><span class="nt">attr_length_units</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;feet&#39;</span><span class="w">  </span><span class="c1"># units of source data</span><span class="w"></span>
-<span class="linenos">113</span><span class="w">      </span><span class="nt">attr_height_units</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;feet&#39;</span><span class="w">  </span><span class="c1"># units of source data</span><span class="w"></span>
-<span class="linenos">114</span><span class="w">  </span><span class="nt">sfrmaker_options</span><span class="p">:</span><span class="w"></span>
-<span class="linenos">115</span><span class="w">    </span><span class="c1"># convert reaches corresponding to these LineString identifiers</span><span class="w"></span>
-<span class="linenos">116</span><span class="w">    </span><span class="c1"># (in the flowlines id_column), and all downstream reaches</span><span class="w"></span>
-<span class="linenos">117</span><span class="w">    </span><span class="c1"># to the MODFLOW River package</span><span class="w"></span>
-<span class="linenos">118</span><span class="w">    </span><span class="nt">to_riv</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">18047212</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="linenos">119</span>
-<span class="linenos">120</span><span class="nt">chd</span><span class="p">:</span><span class="w"></span>
-<span class="linenos">121</span><span class="w">  </span><span class="nt">perimeter_boundary</span><span class="p">:</span><span class="w"></span>
-<span class="linenos">122</span><span class="w">    </span><span class="nt">shapefile</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;shellmound/tmr_parent/gis/irregular_boundary.shp&#39;</span><span class="w"></span>
-<span class="linenos">123</span><span class="w">    </span><span class="nt">parent_head_file</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;shellmound/tmr_parent/shellmound.hds&#39;</span><span class="w">  </span><span class="c1"># needed for the perimeter boundary setup</span><span class="w"></span>
+<span class="linenos"> 21</span><span class="w">  </span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="linenos"> 22</span><span class="w">  </span><span class="nt">external_path</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;external/&#39;</span><span class="w"></span>
+<span class="linenos"> 23</span><span class="w">  </span><span class="nt">relative_external_filepaths</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span><span class="w"></span>
+<span class="linenos"> 24</span>
+<span class="linenos"> 25</span><span class="nt">parent</span><span class="p">:</span><span class="w"></span>
+<span class="linenos"> 26</span><span class="w">  </span><span class="c1"># argments to flopy.modflow.Modflow.load for parent model</span><span class="w"></span>
+<span class="linenos"> 27</span><span class="w">  </span><span class="nt">namefile</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;shellmound.nam&#39;</span><span class="w"></span>
+<span class="linenos"> 28</span><span class="w">  </span><span class="nt">model_ws</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;shellmound/tmr_parent&#39;</span><span class="w"></span>
+<span class="linenos"> 29</span><span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;mf6&#39;</span><span class="w"></span>
+<span class="linenos"> 30</span><span class="w">  </span><span class="nt">default_source_data</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span><span class="w">  </span><span class="c1"># if True, packages and variables that are omitted will be pulled from this model</span><span class="w"></span>
+<span class="linenos"> 31</span><span class="w">  </span><span class="nt">copy_stress_periods</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;all&#39;</span><span class="w"></span>
+<span class="linenos"> 32</span><span class="w">  </span><span class="nt">start_date_time</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;1998-04-01&#39;</span><span class="w"></span>
+<span class="linenos"> 33</span><span class="w">  </span><span class="c1"># inset_layer_mapping assumed to be 1:1 if not entered</span><span class="w"></span>
+<span class="linenos"> 34</span><span class="w">  </span><span class="nt">length_units</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;meters&#39;</span><span class="w"></span>
+<span class="linenos"> 35</span><span class="w">  </span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;days&#39;</span><span class="w"></span>
+<span class="linenos"> 36</span><span class="w">  </span><span class="c1"># parent model lower left corner location and CRS</span><span class="w"></span>
+<span class="linenos"> 37</span><span class="w">  </span><span class="c1"># (overrides any information in name file)</span><span class="w"></span>
+<span class="linenos"> 38</span><span class="w">  </span><span class="nt">SpatialReference</span><span class="p">:</span><span class="w"></span>
+<span class="linenos"> 39</span><span class="w">    </span><span class="nt">xoff</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">500955</span><span class="w"></span>
+<span class="linenos"> 40</span><span class="w">    </span><span class="nt">yoff</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1175285</span><span class="w"></span>
+<span class="linenos"> 41</span><span class="w">    </span><span class="nt">epsg</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5070</span><span class="w"></span>
+<span class="linenos"> 42</span>
+<span class="linenos"> 43</span><span class="nt">setup_grid</span><span class="p">:</span><span class="w"></span>
+<span class="linenos"> 44</span><span class="w">  </span><span class="nt">xoff</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">501405</span><span class="w"> </span><span class="c1"># lower left x-coordinate</span><span class="w"></span>
+<span class="linenos"> 45</span><span class="w">  </span><span class="nt">yoff</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1175835</span><span class="w"> </span><span class="c1"># lower left y-coordinate</span><span class="w"></span>
+<span class="linenos"> 46</span><span class="w">  </span><span class="nt">rotation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.</span><span class="w"></span>
+<span class="linenos"> 47</span><span class="w">  </span><span class="nt">epsg</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5070</span><span class="w"></span>
+<span class="linenos"> 48</span><span class="w">  </span><span class="nt">snap_to_NHG</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span><span class="w"></span>
+<span class="linenos"> 49</span>
+<span class="linenos"> 50</span><span class="nt">dis</span><span class="p">:</span><span class="w"></span>
+<span class="linenos"> 51</span><span class="w">  </span><span class="nt">remake_top</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span><span class="w"></span>
+<span class="linenos"> 52</span><span class="w">  </span><span class="nt">options</span><span class="p">:</span><span class="w"></span>
+<span class="linenos"> 53</span><span class="w">    </span><span class="nt">length_units</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;meters&#39;</span><span class="w"></span>
+<span class="linenos"> 54</span><span class="w">  </span><span class="nt">dimensions</span><span class="p">:</span><span class="w"></span>
+<span class="linenos"> 55</span><span class="w">    </span><span class="nt">nlay</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">13</span><span class="w"></span>
+<span class="linenos"> 56</span><span class="w">    </span><span class="nt">nrow</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span><span class="w"></span>
+<span class="linenos"> 57</span><span class="w">    </span><span class="nt">ncol</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">35</span><span class="w"></span>
+<span class="linenos"> 58</span><span class="w">  </span><span class="nt">griddata</span><span class="p">:</span><span class="w"></span>
+<span class="linenos"> 59</span><span class="w">    </span><span class="nt">delr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000.</span><span class="w"></span>
+<span class="linenos"> 60</span><span class="w">    </span><span class="nt">delc</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1000.</span><span class="w"></span>
+<span class="linenos"> 61</span><span class="w">  </span><span class="nt">source_data</span><span class="p">:</span><span class="w"></span>
+<span class="linenos"> 62</span><span class="w">    </span><span class="nt">top</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">from_parent</span><span class="w"></span>
+<span class="linenos"> 63</span><span class="w">    </span><span class="nt">botm</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">from_parent</span><span class="w"></span>
+<span class="linenos"> 64</span><span class="w">    </span><span class="nt">idomain</span><span class="p">:</span><span class="w"></span>
+<span class="linenos"> 65</span><span class="w">      </span><span class="nt">filename</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;shellmound/tmr_parent/gis/irregular_boundary.shp&#39;</span><span class="w"></span>
+<span class="linenos"> 66</span><span class="w">  </span><span class="nt">minimum_layer_thickness</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"> </span><span class="c1"># layers less than this thickness are converted to vertical pass-through cells</span><span class="w"></span>
+<span class="linenos"> 67</span><span class="w">  </span><span class="nt">drop_thin_cells</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span><span class="w"></span>
+<span class="linenos"> 68</span>
+<span class="linenos"> 69</span><span class="nt">tdis</span><span class="p">:</span><span class="w"></span>
+<span class="linenos"> 70</span><span class="w">  </span><span class="nt">options</span><span class="p">:</span><span class="w"></span>
+<span class="linenos"> 71</span><span class="w">    </span><span class="nt">time_units</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;days&#39;</span><span class="w"></span>
+<span class="linenos"> 72</span><span class="w">    </span><span class="nt">start_date_time</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;1998-04-01&#39;</span><span class="w"></span>
+<span class="linenos"> 73</span><span class="w">  </span><span class="nt">perioddata</span><span class="p">:</span><span class="w"></span>
+<span class="linenos"> 74</span><span class="w">    </span><span class="c1"># time discretization info can be specified directly under the perioddata key</span><span class="w"></span>
+<span class="linenos"> 75</span><span class="w">    </span><span class="c1"># or in groups of stress periods that are discretized in a similar way</span><span class="w"></span>
+<span class="linenos"> 76</span><span class="w">    </span><span class="nt">group 1</span><span class="p">:</span><span class="w"> </span><span class="c1"># initial steady-state period (steady specified under sto package)</span><span class="w"></span>
+<span class="linenos"> 77</span><span class="w">      </span><span class="c1">#perlen: 1 # Specify perlen as an int or list of lengths in model units, or perlen=None and 3 of start_date, end_date, nper and/or freq.&quot;</span><span class="w"></span>
+<span class="linenos"> 78</span><span class="w">      </span><span class="nt">nper</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"></span>
+<span class="linenos"> 79</span><span class="w">      </span><span class="nt">nstp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"></span>
+<span class="linenos"> 80</span><span class="w">      </span><span class="nt">tsmult</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"></span>
+<span class="linenos"> 81</span><span class="w">      </span><span class="nt">steady</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span><span class="w">  </span><span class="c1"># &quot;steady&quot; can be entered here; otherwise the global entry specified in the sto package is used as the default</span><span class="w"></span>
+<span class="linenos"> 82</span><span class="w">      </span><span class="c1"># oc_saverecord: can also be specified by group here; otherwise the global entry specified in the oc package is used as the default</span><span class="w"></span>
+<span class="linenos"> 83</span><span class="w">    </span><span class="nt">group 2</span><span class="p">:</span><span class="w"> </span><span class="c1"># single long period for spin-up of pumping</span><span class="w"></span>
+<span class="linenos"> 84</span><span class="w">      </span><span class="nt">start_date_time</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;1998-04-01&#39;</span><span class="w">  </span><span class="c1"># can be specified by group, otherwise start_date_time for the model (under tdis: options) will be used.</span><span class="w"></span>
+<span class="linenos"> 85</span><span class="w">      </span><span class="nt">end_date_time</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2007-04-01&#39;</span><span class="w">  </span><span class="c1"># model ends at midnight on this date (2007-03-31 would be the last day simulated)</span><span class="w"></span>
+<span class="linenos"> 86</span><span class="w">      </span><span class="nt">nper</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"></span>
+<span class="linenos"> 87</span><span class="w">      </span><span class="nt">nstp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"></span>
+<span class="linenos"> 88</span><span class="w">      </span><span class="nt">tsmult</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.5</span><span class="w"></span>
+<span class="linenos"> 89</span><span class="w">      </span><span class="nt">steady</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
+<span class="linenos"> 90</span><span class="w">    </span><span class="nt">group 3</span><span class="p">:</span><span class="w"></span>
+<span class="linenos"> 91</span><span class="w">      </span><span class="nt">start_date_time</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2007-04-01&#39;</span><span class="w"></span>
+<span class="linenos"> 92</span><span class="w">      </span><span class="nt">end_date_time</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;2015-09-30&#39;</span><span class="w">  </span><span class="c1"># model ends at midnight on this date (2015-09-30 would be the last day simulated)</span><span class="w"></span>
+<span class="linenos"> 93</span><span class="w">      </span><span class="nt">freq</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;6MS&#39;</span><span class="w"> </span><span class="c1"># same as argument to pandas.date_range; (see &quot;Offset Aliases&quot; at https://pandas.pydata.org/pandas-docs/stable/user_guide/timeseries.html#timeseries-offset-aliases)</span><span class="w"></span>
+<span class="linenos"> 94</span><span class="w">      </span><span class="nt">nstp</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span><span class="w"></span>
+<span class="linenos"> 95</span><span class="w">      </span><span class="nt">tsmult</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.5</span><span class="w"></span>
+<span class="linenos"> 96</span><span class="w">      </span><span class="nt">steady</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">False</span><span class="w"></span>
+<span class="linenos"> 97</span>
+<span class="linenos"> 98</span><span class="nt">sfr</span><span class="p">:</span><span class="w"></span>
+<span class="linenos"> 99</span><span class="w">  </span><span class="nt">options</span><span class="p">:</span><span class="w"></span>
+<span class="linenos">100</span><span class="w">    </span><span class="nt">save_flows</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span><span class="w"></span>
+<span class="linenos">101</span><span class="w">  </span><span class="nt">source_data</span><span class="p">:</span><span class="w"></span>
+<span class="linenos">102</span><span class="w">    </span><span class="nt">flowlines</span><span class="p">:</span><span class="w"></span>
+<span class="linenos">103</span><span class="w">      </span><span class="nt">filename</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;shellmound/shps/flowlines.shp&#39;</span><span class="w"></span>
+<span class="linenos">104</span><span class="w">      </span><span class="nt">id_column</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;COMID&#39;</span><span class="w">  </span><span class="c1"># arguments to sfrmaker.Lines.from_shapefile</span><span class="w"></span>
+<span class="linenos">105</span><span class="w">      </span><span class="nt">routing_column</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;tocomid&#39;</span><span class="w"></span>
+<span class="linenos">106</span><span class="w">      </span><span class="nt">width1_column</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;width1&#39;</span><span class="w"></span>
+<span class="linenos">107</span><span class="w">      </span><span class="nt">width2_column</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;width2&#39;</span><span class="w"></span>
+<span class="linenos">108</span><span class="w">      </span><span class="nt">up_elevation_column</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;elevupsmo&#39;</span><span class="w"></span>
+<span class="linenos">109</span><span class="w">      </span><span class="nt">dn_elevation_column</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;elevdnsmo&#39;</span><span class="w"></span>
+<span class="linenos">110</span><span class="w">      </span><span class="nt">name_column</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;GNIS_NAME&#39;</span><span class="w"></span>
+<span class="linenos">111</span><span class="w">      </span><span class="nt">attr_length_units</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;feet&#39;</span><span class="w">  </span><span class="c1"># units of source data</span><span class="w"></span>
+<span class="linenos">112</span><span class="w">      </span><span class="nt">attr_height_units</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;feet&#39;</span><span class="w">  </span><span class="c1"># units of source data</span><span class="w"></span>
+<span class="linenos">113</span><span class="w">  </span><span class="nt">sfrmaker_options</span><span class="p">:</span><span class="w"></span>
+<span class="linenos">114</span><span class="w">    </span><span class="c1"># convert reaches corresponding to these LineString identifiers</span><span class="w"></span>
+<span class="linenos">115</span><span class="w">    </span><span class="c1"># (in the flowlines id_column), and all downstream reaches</span><span class="w"></span>
+<span class="linenos">116</span><span class="w">    </span><span class="c1"># to the MODFLOW River package</span><span class="w"></span>
+<span class="linenos">117</span><span class="w">    </span><span class="nt">to_riv</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">18047212</span><span class="p p-Indicator">]</span><span class="w"></span>
+<span class="linenos">118</span>
+<span class="linenos">119</span><span class="nt">wel</span><span class="p">:</span><span class="w"></span>
+<span class="linenos">120</span><span class="w">  </span><span class="nt">perimeter_boundary</span><span class="p">:</span><span class="w"></span>
+<span class="linenos">121</span><span class="w">    </span><span class="nt">shapefile</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;shellmound/tmr_parent/gis/irregular_boundary.shp&#39;</span><span class="w"></span>
+<span class="linenos">122</span><span class="w">    </span><span class="nt">parent_cell_budget_file</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;shellmound/tmr_parent/shellmound.cbc&#39;</span><span class="w">  </span><span class="c1"># needed for the perimeter boundary setup</span><span class="w"></span>
+<span class="linenos">123</span><span class="w">    </span><span class="nt">parent_binary_grid_file</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;shellmound/tmr_parent/shellmound.dis.grb&#39;</span><span class="w"></span>
+<span class="linenos">124</span><span class="w">    </span><span class="c1"># parent model head solution</span><span class="w"></span>
+<span class="linenos">125</span><span class="w">    </span><span class="c1"># for determining boundary fluxes based on saturated thickness</span><span class="w"></span>
+<span class="linenos">126</span><span class="w">    </span><span class="nt">parent_head_file</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;shellmound/tmr_parent/shellmound.hds&#39;</span><span class="w"></span>
 </pre></div>
 </div>
 </section>
 <section id="pleasant-lake-test-case">
-<h2>Pleasant Lake test case<a class="headerlink" href="#pleasant-lake-test-case" title="Permalink to this headline">¶</a></h2>
+<h2>Pleasant Lake test case<a class="headerlink" href="#pleasant-lake-test-case" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>MODFLOW-6 model with local grid refinement (LGR)</p></li>
 <li><p>LGR parent model is itself a Telescopic Mesh Refinment (TMR) inset from a MODFLOW-NWT model</p></li>
@@ -740,7 +744,7 @@
 <li><p>Lake package observations set up automatically (output file for each lake)</p></li>
 </ul>
 <section id="lgr-parent-model-configuration">
-<h3>LGR parent model configuration<a class="headerlink" href="#lgr-parent-model-configuration" title="Permalink to this headline">¶</a></h3>
+<h3>LGR parent model configuration<a class="headerlink" href="#lgr-parent-model-configuration" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="c1"># starting version number for the project (optional)</span><span class="w"></span>
 <span class="linenos">  2</span><span class="c1"># version reported by modflow-setup will then be</span><span class="w"></span>
 <span class="linenos">  3</span><span class="c1"># the start_version appended by the remaining information</span><span class="w"></span>
@@ -932,7 +936,7 @@
 <span class="linenos">189</span><span class="w">      </span><span class="nt">obsname_column</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;site_no&#39;</span><span class="w"></span>
 <span class="linenos">190</span><span class="w">  </span><span class="nt">sfrmaker_options</span><span class="p">:</span><span class="w"></span>
 <span class="linenos">191</span><span class="w">    </span><span class="c1"># the sfrmaker_options: block can include arguments to the Lines.to_sfr method in SFRmaker</span><span class="w"></span>
-<span class="linenos">192</span><span class="w">    </span><span class="c1"># (see https://usgs.github.io/sfrmaker/api/sfrmaker.lines.html#sfrmaker.lines.Lines.to_sfr)</span><span class="w"></span>
+<span class="linenos">192</span><span class="w">    </span><span class="c1"># (see https://doi-usgs.github.io/sfrmaker/api/sfrmaker.lines.html#sfrmaker.lines.Lines.to_sfr)</span><span class="w"></span>
 <span class="linenos">193</span><span class="w">    </span><span class="c1"># or other options such as set_streambed_top_elevations_from_dem (see pleasant examples)</span><span class="w"></span>
 <span class="linenos">194</span><span class="w">    </span><span class="c1"># or to_riv (shellmound_tmr example)</span><span class="w"></span>
 <span class="linenos">195</span><span class="w">    </span><span class="nt">set_streambed_top_elevations_from_dem</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">True</span><span class="w"></span>
@@ -975,7 +979,7 @@
 </div>
 </section>
 <section id="pleasant-lgr-inset-yml">
-<h3>pleasant_lgr_inset.yml<a class="headerlink" href="#pleasant-lgr-inset-yml" title="Permalink to this headline">¶</a></h3>
+<h3>pleasant_lgr_inset.yml<a class="headerlink" href="#pleasant-lgr-inset-yml" title="Permalink to this heading">¶</a></h3>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="linenos">  1</span><span class="nt">simulation</span><span class="p">:</span><span class="w"></span>
 <span class="linenos">  2</span><span class="w">  </span><span class="nt">sim_name</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;pleasant_lgr&#39;</span><span class="w"></span>
 <span class="linenos">  3</span><span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;mf6&#39;</span><span class="w"></span>
@@ -1112,7 +1116,7 @@
 </section>
 </section>
 <section id="pleasant-lake-modflow-nwt-test-case">
-<h2>Pleasant Lake MODFLOW-NWT test case<a class="headerlink" href="#pleasant-lake-modflow-nwt-test-case" title="Permalink to this headline">¶</a></h2>
+<h2>Pleasant Lake MODFLOW-NWT test case<a class="headerlink" href="#pleasant-lake-modflow-nwt-test-case" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>MODFLOW-NWT TMR inset from a MODFLOW-NWT model</p></li>
 <li><p>Layer 1 in parent model is subdivided evenly into two layers in the inset model (<code class="docutils literal notranslate"><span class="pre">botm:</span> <span class="pre">from_parent:</span> <span class="pre">0:</span> <span class="pre">-0.5</span></code>). Other layers mapped explicitly between TMR parent and LGR model.</p></li>
@@ -1216,15 +1220,15 @@
 <span class="linenos"> 89</span>
 <span class="linenos"> 90</span><span class="nt">ghb</span><span class="p">:</span><span class="w"></span>
 <span class="linenos"> 91</span><span class="w">  </span><span class="nt">options</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&#39;SPECIFY&#39;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&#39;0.01&#39;</span><span class="p p-Indicator">]</span><span class="w"></span>
-<span class="linenos"> 92</span><span class="w">  </span><span class="nt">cond</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">9</span><span class="w">  </span><span class="c1"># m2/d</span><span class="w"></span>
-<span class="linenos"> 93</span><span class="w">  </span><span class="nt">source_data</span><span class="p">:</span><span class="w"></span>
-<span class="linenos"> 94</span><span class="w">    </span><span class="nt">shapefile</span><span class="p">:</span><span class="w"></span>
-<span class="linenos"> 95</span><span class="w">      </span><span class="nt">filename</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;../../../examples/data/pleasant/source_data/shps/all_lakes.shp&#39;</span><span class="w"></span>
-<span class="linenos"> 96</span><span class="w">      </span><span class="nt">id_column</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;HYDROID&#39;</span><span class="w"></span>
-<span class="linenos"> 97</span><span class="w">      </span><span class="nt">include_ids</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">600059161</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="c1"># pond near pleasant lake</span><span class="w"></span>
-<span class="linenos"> 98</span><span class="w">    </span><span class="nt">dem</span><span class="p">:</span><span class="w"></span>
-<span class="linenos"> 99</span><span class="w">      </span><span class="nt">filename</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;../../../examples/data/pleasant/source_data/rasters/dem40m.tif&#39;</span><span class="w"></span>
-<span class="linenos">100</span><span class="w">      </span><span class="nt">elevation_units</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;meters&#39;</span><span class="w"></span>
+<span class="linenos"> 92</span><span class="w">  </span><span class="nt">source_data</span><span class="p">:</span><span class="w"></span>
+<span class="linenos"> 93</span><span class="w">    </span><span class="nt">shapefile</span><span class="p">:</span><span class="w"></span>
+<span class="linenos"> 94</span><span class="w">      </span><span class="nt">filename</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;../../../examples/data/pleasant/source_data/shps/all_lakes.shp&#39;</span><span class="w"></span>
+<span class="linenos"> 95</span><span class="w">      </span><span class="nt">id_column</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;HYDROID&#39;</span><span class="w"></span>
+<span class="linenos"> 96</span><span class="w">      </span><span class="nt">include_ids</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">600059161</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="c1"># pond near pleasant lake</span><span class="w"></span>
+<span class="linenos"> 97</span><span class="w">    </span><span class="nt">bhead</span><span class="p">:</span><span class="w"></span>
+<span class="linenos"> 98</span><span class="w">      </span><span class="nt">filename</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;../../../examples/data/pleasant/source_data/rasters/dem40m.tif&#39;</span><span class="w"></span>
+<span class="linenos"> 99</span><span class="w">      </span><span class="nt">elevation_units</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;meters&#39;</span><span class="w"></span>
+<span class="linenos">100</span><span class="w">    </span><span class="nt">cond</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">9</span><span class="w">  </span><span class="c1"># m2/d</span><span class="w"></span>
 <span class="linenos">101</span>
 <span class="linenos">102</span><span class="nt">lak</span><span class="p">:</span><span class="w"></span>
 <span class="linenos">103</span><span class="w">  </span><span class="nt">theta</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">-0.7</span><span class="w">  </span><span class="c1"># semi-implicit; negative value indicates that surfdep is read</span><span class="w"></span>
@@ -1298,7 +1302,7 @@
 </div>
 </section>
 <section id="plainfield-lakes-modflow-nwt-test-case">
-<h2>Plainfield Lakes MODFLOW-NWT test case<a class="headerlink" href="#plainfield-lakes-modflow-nwt-test-case" title="Permalink to this headline">¶</a></h2>
+<h2>Plainfield Lakes MODFLOW-NWT test case<a class="headerlink" href="#plainfield-lakes-modflow-nwt-test-case" title="Permalink to this heading">¶</a></h2>
 <ul class="simple">
 <li><p>MODFLOW-NWT TMR inset from a MODFLOW-NWT model</p></li>
 <li><p>Layer 1 in parent model is subdivided evenly into two layers in the inset model (<code class="docutils literal notranslate"><span class="pre">botm:</span> <span class="pre">from_parent:</span> <span class="pre">0:</span> <span class="pre">-0.5</span></code>). Other layers mapped explicitly between TMR parent and LGR model.</p></li>
@@ -1527,7 +1531,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2019-2022, Modflow-setup developers |.
-      <span class="lastupdated">Last updated on Mar 24, 2022.
+      <span class="lastupdated">Last updated on Sep 14, 2022.
       </span></p>
   </div>
 

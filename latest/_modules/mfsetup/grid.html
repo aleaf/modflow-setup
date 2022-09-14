@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mfsetup.grid &mdash; modflow-setup 0.post294+gd31ec37 documentation</title>
+  <title>mfsetup.grid &mdash; modflow-setup 0.post362+g664ccd7 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
@@ -15,6 +15,7 @@
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
         <script src="../../_static/jquery.js"></script>
         <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/clipboard.min.js"></script>
         <script src="../../_static/copybutton.js"></script>
@@ -32,7 +33,7 @@
             <a href="../../index.html" class="icon icon-home"> modflow-setup
           </a>
               <div class="version">
-                0.post294+gd31ec37
+                0.post362+g664ccd7
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -110,6 +111,7 @@
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">pyproj</span>
 <span class="kn">from</span> <span class="nn">flopy.discretization</span> <span class="kn">import</span> <span class="n">StructuredGrid</span>
+<span class="kn">from</span> <span class="nn">flopy.mf6.utils.binarygrid_util</span> <span class="kn">import</span> <span class="n">MfGrdFile</span>
 <span class="kn">from</span> <span class="nn">geopandas.geodataframe</span> <span class="kn">import</span> <span class="n">GeoDataFrame</span>
 <span class="kn">from</span> <span class="nn">gisutils</span> <span class="kn">import</span> <span class="n">df2shp</span><span class="p">,</span> <span class="n">get_proj_str</span><span class="p">,</span> <span class="n">project</span><span class="p">,</span> <span class="n">shp2df</span>
 <span class="kn">from</span> <span class="nn">packaging</span> <span class="kn">import</span> <span class="n">version</span>
@@ -192,7 +194,7 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">delc</span><span class="p">,</span> <span class="n">delr</span><span class="p">,</span> <span class="n">top</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">botm</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">idomain</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-                 <span class="n">laycbd</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">lenuni</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                 <span class="n">laycbd</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">lenuni</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">binary_grid_file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">epsg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">proj_str</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">prj</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">wkt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                  <span class="n">xoff</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">yoff</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">xul</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">yul</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">angrot</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">MFsetupGrid</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">delc</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">delc</span><span class="p">),</span> <span class="n">delr</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">delr</span><span class="p">),</span>
@@ -212,6 +214,10 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">_vertices</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_polygons</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_dataframe</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># MODFLOW 6 binary grid file, for getting intercell connections</span>
+        <span class="c1"># (needed for reading cell budget files)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">binary_grid_file</span> <span class="o">=</span> <span class="n">binary_grid_file</span>
 
         <span class="c1"># if no epsg, set from proj4 string if possible</span>
         <span class="c1">#if epsg is None and proj_str is not None and &#39;epsg&#39; in proj_str.lower():</span>
@@ -333,15 +339,18 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">epsg</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">crs</span><span class="o">.</span><span class="n">to_epsg</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">crs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">crs</span><span class="o">.</span><span class="n">to_epsg</span><span class="p">()</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">proj_str</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">crs</span><span class="o">.</span><span class="n">to_proj4</span><span class="p">()</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">crs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">crs</span><span class="o">.</span><span class="n">to_proj4</span><span class="p">()</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">wkt</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">crs</span><span class="o">.</span><span class="n">to_wkt</span><span class="p">(</span><span class="n">pretty</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">crs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">crs</span><span class="o">.</span><span class="n">to_wkt</span><span class="p">(</span><span class="n">pretty</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
     <span class="nd">@property</span>
     <span class="k">def</span> <span class="nf">length_units</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -369,6 +378,73 @@
             <span class="bp">self</span><span class="o">.</span><span class="n">_dataframe</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_dataframe</span><span class="p">(</span><span class="n">layers</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_dataframe</span>
 
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">intercell_connections</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Pandas DataFrame of flow connections between grid cells.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_intercell_connections</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_intercell_connections</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_intercell_connections</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_intercell_connections</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">top</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_top</span>
+
+    <span class="nd">@top</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">top</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">top</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_top</span> <span class="o">=</span> <span class="n">top</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span> <span class="nf">botm</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_botm</span>
+
+    <span class="nd">@botm</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">botm</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">botm</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_StructuredGrid__nrow</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_StructuredGrid__ncol</span><span class="p">)</span> <span class="o">!=</span> <span class="n">botm</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;botm array shape is inconsistent with the model grid&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_StructuredGrid__nlay</span> <span class="o">=</span> <span class="n">botm</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_laycbd</span><span class="o">.</span><span class="n">size</span> <span class="o">!=</span> <span class="n">botm</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_laycbd</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">botm</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_botm</span> <span class="o">=</span> <span class="n">botm</span>
+
+<div class="viewcode-block" id="MFsetupGrid.get_intercell_connections"><a class="viewcode-back" href="../../api/mfsetup.grid.html#mfsetup.grid.MFsetupGrid.get_intercell_connections">[docs]</a>    <span class="k">def</span> <span class="nf">get_intercell_connections</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">binary_grid_file</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;_summary_</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        binary_grid_file : str or pathlike</span>
+<span class="sd">            MODFLOW 6 binary grid file</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        df : DataFrame</span>
+<span class="sd">            Intercell connections, with the following columns:</span>
+
+<span class="sd">            === =============================================================</span>
+<span class="sd">            n   from zero-based node number</span>
+<span class="sd">            kn  from zero-based layer</span>
+<span class="sd">            in  from zero-based row</span>
+<span class="sd">            jn  from zero-based column</span>
+<span class="sd">            m   to zero-based node number</span>
+<span class="sd">            kn  to zero-based layer</span>
+<span class="sd">            in  to zero-based row</span>
+<span class="sd">            jn  to zero-based column</span>
+<span class="sd">            === =============================================================</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            _description_</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">binary_grid_file</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">binary_grid_file</span> <span class="o">=</span> <span class="n">binary_grid_file</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">binary_grid_file</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;A MODFLOW 6 binary_grid_file &quot;</span>
+                             <span class="s2">&quot;is needed to get intercell connections. &quot;</span>
+                             <span class="s2">&quot;Either run get_intercell_connections or &quot;</span>
+                             <span class="s2">&quot;re-instantiate the grid with a binary_grid_file argument.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_intercell_connections</span> <span class="o">=</span> <span class="n">get_intercell_connections</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">binary_grid_file</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_intercell_connections</span></div>
+
 <div class="viewcode-block" id="MFsetupGrid.get_dataframe"><a class="viewcode-back" href="../../api/mfsetup.grid.html#mfsetup.grid.MFsetupGrid.get_dataframe">[docs]</a>    <span class="k">def</span> <span class="nf">get_dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layers</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Get a pandas DataFrame of grid cell polygons</span>
 <span class="sd">        with i, j locations.</span>
@@ -390,7 +466,7 @@
         <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">indices</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">nrow</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ncol</span><span class="p">))</span>
         <span class="n">geoms</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">polygons</span>
         <span class="n">df</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">({</span><span class="s1">&#39;i&#39;</span><span class="p">:</span> <span class="n">i</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span>
-                              <span class="s1">&#39;j&#39;</span><span class="p">:</span> <span class="n">j</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span>
+                               <span class="s1">&#39;j&#39;</span><span class="p">:</span> <span class="n">j</span><span class="o">.</span><span class="n">ravel</span><span class="p">(),</span>
                               <span class="s1">&#39;geometry&#39;</span><span class="p">:</span> <span class="n">geoms</span><span class="p">},</span> <span class="n">crs</span><span class="o">=</span><span class="mi">5070</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">layers</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">nlay</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="c1"># add layer information</span>
@@ -524,6 +600,17 @@
     <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unravel_index</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">nrow</span><span class="p">,</span> <span class="n">grid</span><span class="o">.</span><span class="n">ncol</span><span class="p">))</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;finished in </span><span class="si">{:.2f}</span><span class="s2">s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span></div>
+
+
+<div class="viewcode-block" id="get_kij_from_node3d"><a class="viewcode-back" href="../../api/mfsetup.grid.html#mfsetup.grid.get_kij_from_node3d">[docs]</a><span class="k">def</span> <span class="nf">get_kij_from_node3d</span><span class="p">(</span><span class="n">node3d</span><span class="p">,</span> <span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;For a consecutive cell number in row-major order</span>
+<span class="sd">    (row, column, layer), get the zero-based row, column position.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">node2d</span> <span class="o">=</span> <span class="n">node3d</span> <span class="o">%</span> <span class="p">(</span><span class="n">nrow</span> <span class="o">*</span> <span class="n">ncol</span><span class="p">)</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">node3d</span> <span class="o">//</span> <span class="p">(</span><span class="n">nrow</span> <span class="o">*</span> <span class="n">ncol</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">node2d</span> <span class="o">//</span> <span class="n">ncol</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="n">node2d</span> <span class="o">%</span> <span class="n">ncol</span>
+    <span class="k">return</span> <span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span></div>
 
 
 <div class="viewcode-block" id="get_grid_bounding_box"><a class="viewcode-back" href="../../api/mfsetup.grid.html#mfsetup.grid.get_grid_bounding_box">[docs]</a><span class="k">def</span> <span class="nf">get_grid_bounding_box</span><span class="p">(</span><span class="n">modelgrid</span><span class="p">):</span>
@@ -737,7 +824,9 @@
     <span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">crs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">orig_crs</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">crs</span>
         <span class="n">df</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">df</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">grid</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span><span class="o">.</span><span class="n">is_valid</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">is_valid</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
+            <span class="n">df</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">g</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">geometry</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">is_valid</span><span class="o">.</span><span class="n">all</span><span class="p">():</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Something went wrong with reprojecting &#39;</span>
                              <span class="sa">f</span><span class="s1">&#39;the input features from</span><span class="se">\n</span><span class="si">{</span><span class="n">orig_crs</span><span class="si">}</span><span class="se">\n</span><span class="s1">to</span><span class="se">\n</span><span class="si">{</span><span class="n">grid</span><span class="o">.</span><span class="n">crs</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span>
                              <span class="s1">&#39;Check the input feature and model grid projections&#39;</span>
@@ -752,15 +841,22 @@
 
     <span class="c1"># create list of GeoJSON features, with unique value for each feature</span>
     <span class="k">if</span> <span class="n">id_column</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">numbers</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">numbers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
     <span class="c1"># if IDs are strings, get a number for each one</span>
     <span class="c1"># pd.DataFrame.unique() generally preserves order</span>
-    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">id_column</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">object</span><span class="p">):</span>
+    <span class="k">elif</span> <span class="n">df</span><span class="p">[</span><span class="n">id_column</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span> <span class="o">==</span> <span class="n">np</span><span class="o">.</span><span class="n">object</span><span class="p">:</span>
         <span class="n">unique_values</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">id_column</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
         <span class="n">values</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">unique_values</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">unique_values</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)))</span>
         <span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="n">values</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="n">id_column</span><span class="p">]]</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">numbers</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">id_column</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">numbers</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">id_column</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+        <span class="c1"># add one if the lowest number is 0</span>
+        <span class="c1"># (zero indicates non-intersected raster cells)</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">numbers</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;id_column must have positive integers!&quot;</span><span class="p">)</span>
+        <span class="n">numbers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">numbers</span><span class="p">)</span>
 
     <span class="n">geoms</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">geometry</span><span class="p">,</span> <span class="n">numbers</span><span class="p">))</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">rasterize</span><span class="p">(</span><span class="n">geoms</span><span class="p">,</span>
@@ -940,7 +1036,7 @@
         <span class="c1"># move away from the edge of a cell</span>
         <span class="n">xul_mod</span> <span class="o">+=</span> <span class="p">(</span><span class="n">delr_grid</span> <span class="o">*</span> <span class="mf">0.25</span><span class="p">)</span>
         <span class="n">yul_mod</span> <span class="o">-=</span> <span class="p">(</span><span class="n">delc_grid</span> <span class="o">*</span> <span class="mf">0.25</span><span class="p">)</span>
-        <span class="c1"># flip back to work coords</span>
+        <span class="c1"># flip back to world coords</span>
         <span class="n">xul</span><span class="p">,</span> <span class="n">yul</span> <span class="o">=</span> <span class="n">parent_model</span><span class="o">.</span><span class="n">modelgrid</span><span class="o">.</span><span class="n">get_coords</span><span class="p">(</span><span class="n">xul_mod</span><span class="p">,</span> <span class="n">yul_mod</span><span class="p">)</span>
         <span class="c1"># get corresponding cell</span>
         <span class="n">pi</span><span class="p">,</span> <span class="n">pj</span> <span class="o">=</span> <span class="n">parent_model</span><span class="o">.</span><span class="n">modelgrid</span><span class="o">.</span><span class="n">intersect</span><span class="p">(</span><span class="n">xul</span><span class="p">,</span> <span class="n">yul</span><span class="p">)</span>
@@ -1033,6 +1129,112 @@
         <span class="n">write_bbox_shapefile</span><span class="p">(</span><span class="n">modelgrid</span><span class="p">,</span> <span class="n">bbox_shapefile</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;finished in </span><span class="si">{:.2f}</span><span class="s2">s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span><span class="p">))</span>
     <span class="k">return</span> <span class="n">modelgrid</span></div>
+
+
+<div class="viewcode-block" id="get_cellface_midpoint"><a class="viewcode-back" href="../../api/mfsetup.grid.html#mfsetup.grid.get_cellface_midpoint">[docs]</a><span class="k">def</span> <span class="nf">get_cellface_midpoint</span><span class="p">(</span><span class="n">grid</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">direction</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Return the midpoint of vertical cell face within a structured grid.</span>
+<span class="sd">    For example, the midpoint for the right cell face is halfway between</span>
+<span class="sd">    the upper and lower right corners of the cell, halfway between the</span>
+<span class="sd">    top and bottom edges.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span><span class="n">k</span><span class="p">):</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isscalar</span><span class="p">(</span><span class="n">j</span><span class="p">):</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="p">[</span><span class="n">j</span><span class="p">]</span>
+    <span class="n">k</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">direction</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">direction</span> <span class="o">=</span> <span class="p">[</span><span class="n">direction</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+    <span class="n">x_edges_model</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">xyedges</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">x_centers_model</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">xycenters</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">y_edges_model</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">xyedges</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">y_centers_model</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">xycenters</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">model_x</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">model_y</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">ii</span><span class="p">,</span> <span class="n">jj</span><span class="p">,</span> <span class="n">dn</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">direction</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">dn</span> <span class="o">==</span> <span class="s1">&#39;right&#39;</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">x_edges_model</span><span class="p">[</span><span class="n">jj</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">y_centers_model</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">dn</span> <span class="o">==</span> <span class="s1">&#39;left&#39;</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">x_edges_model</span><span class="p">[</span><span class="n">jj</span><span class="p">]</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">y_centers_model</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">dn</span> <span class="o">==</span> <span class="s1">&#39;top&#39;</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">x_centers_model</span><span class="p">[</span><span class="n">jj</span><span class="p">]</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">y_edges_model</span><span class="p">[</span><span class="n">ii</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">dn</span> <span class="o">==</span> <span class="s1">&#39;bottom&#39;</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">x_centers_model</span><span class="p">[</span><span class="n">jj</span><span class="p">]</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">y_edges_model</span><span class="p">[</span><span class="n">ii</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;direction needs to be right, left, top or bottom&quot;</span><span class="p">)</span>
+        <span class="n">model_x</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">model_y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">get_coords</span><span class="p">(</span><span class="n">model_x</span><span class="p">,</span> <span class="n">model_y</span><span class="p">)</span>
+    <span class="n">z</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">zcellcenters</span><span class="p">[</span><span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span></div>
+
+
+<div class="viewcode-block" id="get_intercell_connections"><a class="viewcode-back" href="../../api/mfsetup.grid.html#mfsetup.grid.get_intercell_connections">[docs]</a><span class="k">def</span> <span class="nf">get_intercell_connections</span><span class="p">(</span><span class="n">binary_grid_file</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Get all of the connections between cells in a</span>
+<span class="sd">    MODFLOW 6 structured grid.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    binary_grid_file : str or pathlike</span>
+<span class="sd">        MODFLOW 6 binary grid file</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    df : DataFrame</span>
+<span class="sd">        Intercell connections, with the following columns:</span>
+
+<span class="sd">        ==== =============================================================</span>
+<span class="sd">        n    from zero-based node number</span>
+<span class="sd">        kn   from zero-based layer</span>
+<span class="sd">        in   from zero-based row</span>
+<span class="sd">        jn   from zero-based column</span>
+<span class="sd">        m    to zero-based node number</span>
+<span class="sd">        kn   to zero-based layer</span>
+<span class="sd">        in   to zero-based row</span>
+<span class="sd">        jn   to zero-based column</span>
+<span class="sd">        qidx index position of flow in cell budget file</span>
+<span class="sd">        ==== =============================================================</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        _description_</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Getting intercell connections...&#39;</span><span class="p">)</span>
+    <span class="n">ta</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">bgf</span> <span class="o">=</span> <span class="n">MfGrdFile</span><span class="p">(</span><span class="n">binary_grid_file</span><span class="p">)</span>
+    <span class="n">nrow</span> <span class="o">=</span> <span class="n">bgf</span><span class="o">.</span><span class="n">nrow</span>
+    <span class="n">ncol</span> <span class="o">=</span> <span class="n">bgf</span><span class="o">.</span><span class="n">ncol</span>
+    <span class="c1"># IA array maps cell number to connection number</span>
+    <span class="c1"># (one-based index number of first connection at each cell)?</span>
+    <span class="c1"># taking the forward difference then yields nconnections per cell</span>
+    <span class="n">ia</span> <span class="o">=</span> <span class="n">bgf</span><span class="o">.</span><span class="n">_datadict</span><span class="p">[</span><span class="s1">&#39;IA&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="c1"># Connections in the JA array correspond directly with the</span>
+    <span class="c1"># FLOW-JA-FACE record that is written to the budget file.</span>
+    <span class="n">ja</span> <span class="o">=</span> <span class="n">bgf</span><span class="o">.</span><span class="n">_datadict</span><span class="p">[</span><span class="s1">&#39;JA&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>  <span class="c1"># cell connections</span>
+
+    <span class="n">all_n</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">qidx</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ia</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">ipos</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ia</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ia</span><span class="p">[</span><span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="n">all_n</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+            <span class="n">m</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ja</span><span class="p">[</span><span class="n">ipos</span><span class="p">])</span>  <span class="c1"># m is the cell that n connects to</span>
+            <span class="n">qidx</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ipos</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;n&#39;</span><span class="p">:</span> <span class="n">all_n</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">:</span> <span class="n">m</span><span class="p">,</span> <span class="s1">&#39;qidx&#39;</span><span class="p">:</span> <span class="n">qidx</span><span class="p">})</span>
+    <span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">get_kij_from_node3d</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;n&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;kn&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;in&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;jn&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span>
+    <span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">get_kij_from_node3d</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;m&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">nrow</span><span class="p">,</span> <span class="n">ncol</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;km&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;im&#39;</span><span class="p">],</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;jm&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">k</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Getting intercell connections took </span><span class="si">{</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">ta</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">s</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span></div>
 </pre></div>
 
            </div>
@@ -1043,7 +1245,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2019-2022, Modflow-setup developers |.
-      <span class="lastupdated">Last updated on Mar 24, 2022.
+      <span class="lastupdated">Last updated on Sep 14, 2022.
       </span></p>
   </div>
 
