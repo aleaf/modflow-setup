@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mfsetup.grid &mdash; modflow-setup 0.post362+g664ccd7 documentation</title>
+  <title>mfsetup.grid &mdash; modflow-setup 0.post363+gbfd5835 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
@@ -33,7 +33,7 @@
             <a href="../../index.html" class="icon icon-home"> modflow-setup
           </a>
               <div class="version">
-                0.post362+g664ccd7
+                0.post363+gbfd5835
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -923,11 +923,11 @@
         <span class="n">to_grid_units_parent</span> <span class="o">=</span> <span class="n">convert_length_units</span><span class="p">(</span><span class="n">get_model_length_units</span><span class="p">(</span><span class="n">parent_model</span><span class="p">),</span> <span class="n">grid_units</span><span class="p">)</span>
         <span class="c1"># parent model grid spacing in meters</span>
         <span class="n">parent_delr_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">parent_model</span><span class="o">.</span><span class="n">dis</span><span class="o">.</span><span class="n">delr</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">to_grid_units_parent</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">parent_delr_grid</span> <span class="o">%</span> <span class="n">delr_grid</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">parent_delr_grid</span> <span class="o">%</span> <span class="n">delr_grid</span> <span class="o">%</span> <span class="n">parent_delr_grid</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;inset delr spacing of </span><span class="si">{}</span><span class="s1"> must be factor of parent spacing of </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">delr_grid</span><span class="p">,</span>
                                                                                                       <span class="n">parent_delr_grid</span><span class="p">))</span>
         <span class="n">parent_delc_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">parent_model</span><span class="o">.</span><span class="n">dis</span><span class="o">.</span><span class="n">delc</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">to_grid_units_parent</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">parent_delc_grid</span> <span class="o">%</span> <span class="n">delc_grid</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">parent_delc_grid</span> <span class="o">%</span> <span class="n">delc_grid</span> <span class="o">%</span> <span class="n">parent_delc_grid</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;inset delc spacing of </span><span class="si">{}</span><span class="s1"> must be factor of parent spacing of </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">delc_grid</span><span class="p">,</span>
                                                                                                       <span class="n">parent_delc_grid</span><span class="p">))</span>
 
@@ -1245,7 +1245,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2019-2022, Modflow-setup developers |.
-      <span class="lastupdated">Last updated on Sep 14, 2022.
+      <span class="lastupdated">Last updated on Sep 23, 2022.
       </span></p>
   </div>
 
