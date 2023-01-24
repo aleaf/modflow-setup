@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mfsetup.grid &mdash; modflow-setup 0.post386+gb3cec19 documentation</title>
+  <title>mfsetup.grid &mdash; modflow-setup 0.post388+g9471546 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
@@ -34,7 +34,7 @@
             <a href="../../index.html" class="icon icon-home"> modflow-setup
           </a>
               <div class="version">
-                0.post386+gb3cec19
+                0.post388+g9471546
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -920,7 +920,7 @@
                 <span class="n">delc_grid</span> <span class="o">=</span> <span class="n">delc_grid</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">regular</span> <span class="o">=</span> <span class="kc">False</span>
-    <span class="k">if</span> <span class="n">parent_model</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">parent_model</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">snap_to_parent</span><span class="p">:</span>
         <span class="n">to_grid_units_parent</span> <span class="o">=</span> <span class="n">convert_length_units</span><span class="p">(</span><span class="n">get_model_length_units</span><span class="p">(</span><span class="n">parent_model</span><span class="p">),</span> <span class="n">grid_units</span><span class="p">)</span>
         <span class="c1"># parent model grid spacing in meters</span>
         <span class="n">parent_delr_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">parent_model</span><span class="o">.</span><span class="n">dis</span><span class="o">.</span><span class="n">delr</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">to_grid_units_parent</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
@@ -1246,7 +1246,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2019-2023, Modflow-setup developers |.
-      <span class="lastupdated">Last updated on Jan 13, 2023.
+      <span class="lastupdated">Last updated on Jan 24, 2023.
       </span></p>
   </div>
 
