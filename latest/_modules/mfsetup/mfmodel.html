@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mfsetup.mfmodel &mdash; modflow-setup 0.post388+g9471546 documentation</title>
+  <title>mfsetup.mfmodel &mdash; modflow-setup 0.post389+gaf5c93e documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/plot_directive.css" type="text/css" />
@@ -34,7 +34,7 @@
             <a href="../../index.html" class="icon icon-home"> modflow-setup
           </a>
               <div class="version">
-                0.post388+g9471546
+                0.post389+gaf5c93e
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -642,7 +642,7 @@
             <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">arrays</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">load_array</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nrow</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ncol</span><span class="p">))</span>
 
-<div class="viewcode-block" id="MFsetupMixin.load_features"><a class="viewcode-back" href="../../api/mfsetup.mfmodel.html#mfsetup.mfmodel.MFsetupMixin.load_features">[docs]</a>    <span class="k">def</span> <span class="nf">load_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="nb">filter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<div class="viewcode-block" id="MFsetupMixin.load_features"><a class="viewcode-back" href="../../api/mfsetup.mfmodel.html#mfsetup.mfmodel.MFsetupMixin.load_features">[docs]</a>    <span class="k">def</span> <span class="nf">load_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="n">bbox_filter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                       <span class="n">id_column</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">include_ids</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
                       <span class="n">cache</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Load vector and attribute data from a shapefile;</span>
@@ -664,7 +664,7 @@
                     <span class="c1">#authority = features_crs.to_authority()</span>
                     <span class="c1">#if authority is not None:</span>
                     <span class="c1">#    features_crs = pyproj.CRS.from_user_input(features_crs.to_authority())</span>
-                    <span class="k">if</span> <span class="nb">filter</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">bbox_filter</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
                         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">bbox</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                             <span class="n">bbox</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bbox</span>
                         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">modelgrid</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -673,9 +673,9 @@
                             <span class="k">assert</span> <span class="n">model_proj_str</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
 
                         <span class="k">if</span> <span class="n">features_crs</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">modelgrid</span><span class="o">.</span><span class="n">crs</span><span class="p">:</span>
-                            <span class="nb">filter</span> <span class="o">=</span> <span class="n">project</span><span class="p">(</span><span class="n">bbox</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">modelgrid</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="n">features_crs</span><span class="p">)</span><span class="o">.</span><span class="n">bounds</span>
+                            <span class="n">bbox_filter</span> <span class="o">=</span> <span class="n">project</span><span class="p">(</span><span class="n">bbox</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">modelgrid</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="n">features_crs</span><span class="p">)</span><span class="o">.</span><span class="n">bounds</span>
                         <span class="k">else</span><span class="p">:</span>
-                            <span class="nb">filter</span> <span class="o">=</span> <span class="n">bbox</span><span class="o">.</span><span class="n">bounds</span>
+                            <span class="n">bbox_filter</span> <span class="o">=</span> <span class="n">bbox</span><span class="o">.</span><span class="n">bounds</span>
 
                     <span class="c1"># implement automatic reprojection in gis-utils</span>
                     <span class="c1"># maintaining backwards compatibility</span>
@@ -1570,9 +1570,9 @@
                     <span class="k">return</span>
 
                 <span class="c1"># create an sfrmaker.lines instance</span>
-                <span class="nb">filter</span> <span class="o">=</span> <span class="n">project</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bbox</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">modelgrid</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="s1">&#39;epsg:4269&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">bounds</span>
+                <span class="n">bbox_filter</span> <span class="o">=</span> <span class="n">project</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bbox</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">modelgrid</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="s1">&#39;epsg:4269&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">bounds</span>
                 <span class="n">lines</span> <span class="o">=</span> <span class="n">Lines</span><span class="o">.</span><span class="n">from_nhdplus_v2</span><span class="p">(</span><span class="n">NHDPlus_paths</span><span class="o">=</span><span class="n">nhdplus_paths</span><span class="p">,</span>
-                                            <span class="nb">filter</span><span class="o">=</span><span class="nb">filter</span><span class="p">)</span>
+                                            <span class="n">bbox_filter</span><span class="o">=</span><span class="n">bbox_filter</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;filename&#39;</span><span class="p">,</span> <span class="s1">&#39;filenames&#39;</span><span class="p">]:</span>
                     <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">flowlines</span><span class="p">:</span>
@@ -1595,10 +1595,10 @@
                         <span class="k">if</span> <span class="n">authority</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
                             <span class="n">shapefile_crs</span> <span class="o">=</span> <span class="n">pyproj</span><span class="o">.</span><span class="n">CRS</span><span class="o">.</span><span class="n">from_user_input</span><span class="p">(</span><span class="n">shapefile_crs</span><span class="o">.</span><span class="n">to_authority</span><span class="p">())</span>
 
-                        <span class="nb">filter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bbox</span><span class="o">.</span><span class="n">bounds</span>
+                        <span class="n">bbox_filter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bbox</span><span class="o">.</span><span class="n">bounds</span>
                         <span class="k">if</span> <span class="n">shapefile_crs</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">modelgrid</span><span class="o">.</span><span class="n">crs</span><span class="p">:</span>
-                            <span class="nb">filter</span> <span class="o">=</span> <span class="n">project</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bbox</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">modelgrid</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="n">shapefile_crs</span><span class="p">)</span><span class="o">.</span><span class="n">bounds</span>
-                        <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;filter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">filter</span>
+                            <span class="n">bbox_filter</span> <span class="o">=</span> <span class="n">project</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bbox</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">modelgrid</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="n">shapefile_crs</span><span class="p">)</span><span class="o">.</span><span class="n">bounds</span>
+                        <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;bbox_filter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">bbox_filter</span>
                         <span class="c1"># create an sfrmaker.lines instance</span>
                         <span class="n">kwargs</span> <span class="o">=</span> <span class="n">get_input_arguments</span><span class="p">(</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">Lines</span><span class="o">.</span><span class="n">from_shapefile</span><span class="p">)</span>
                         <span class="n">lines</span> <span class="o">=</span> <span class="n">Lines</span><span class="o">.</span><span class="n">from_shapefile</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -1943,7 +1943,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2019-2023, Modflow-setup developers |.
-      <span class="lastupdated">Last updated on Jan 24, 2023.
+      <span class="lastupdated">Last updated on Feb 03, 2023.
       </span></p>
   </div>
 
