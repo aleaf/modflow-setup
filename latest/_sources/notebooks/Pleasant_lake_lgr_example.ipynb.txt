@@ -40,10 +40,10 @@
    "execution_count": 1,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-15T21:36:45.167093Z",
-     "iopub.status.busy": "2024-01-15T21:36:45.166728Z",
-     "iopub.status.idle": "2024-01-15T21:36:46.368237Z",
-     "shell.execute_reply": "2024-01-15T21:36:46.367700Z"
+     "iopub.execute_input": "2024-01-17T17:23:11.851344Z",
+     "iopub.status.busy": "2024-01-17T17:23:11.851172Z",
+     "iopub.status.idle": "2024-01-17T17:23:13.099578Z",
+     "shell.execute_reply": "2024-01-17T17:23:13.099001Z"
     }
    },
    "outputs": [],
@@ -81,10 +81,10 @@
    "execution_count": 2,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-15T21:36:46.370879Z",
-     "iopub.status.busy": "2024-01-15T21:36:46.370455Z",
-     "iopub.status.idle": "2024-01-15T21:36:46.998771Z",
-     "shell.execute_reply": "2024-01-15T21:36:46.998225Z"
+     "iopub.execute_input": "2024-01-17T17:23:13.102390Z",
+     "iopub.status.busy": "2024-01-17T17:23:13.101877Z",
+     "iopub.status.idle": "2024-01-17T17:23:13.748102Z",
+     "shell.execute_reply": "2024-01-17T17:23:13.747674Z"
     }
    },
    "outputs": [],
@@ -106,10 +106,10 @@
    "execution_count": 3,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-15T21:36:47.001560Z",
-     "iopub.status.busy": "2024-01-15T21:36:47.000958Z",
-     "iopub.status.idle": "2024-01-15T21:36:47.006931Z",
-     "shell.execute_reply": "2024-01-15T21:36:47.006419Z"
+     "iopub.execute_input": "2024-01-17T17:23:13.750466Z",
+     "iopub.status.busy": "2024-01-17T17:23:13.750119Z",
+     "iopub.status.idle": "2024-01-17T17:23:13.755792Z",
+     "shell.execute_reply": "2024-01-17T17:23:13.755315Z"
     }
    },
    "outputs": [
@@ -139,10 +139,10 @@
    "execution_count": 4,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-15T21:36:47.033994Z",
-     "iopub.status.busy": "2024-01-15T21:36:47.033630Z",
-     "iopub.status.idle": "2024-01-15T21:36:47.037474Z",
-     "shell.execute_reply": "2024-01-15T21:36:47.036994Z"
+     "iopub.execute_input": "2024-01-17T17:23:13.784842Z",
+     "iopub.status.busy": "2024-01-17T17:23:13.784428Z",
+     "iopub.status.idle": "2024-01-17T17:23:13.788257Z",
+     "shell.execute_reply": "2024-01-17T17:23:13.787780Z"
     }
    },
    "outputs": [
@@ -180,10 +180,10 @@
    "execution_count": 5,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-15T21:36:47.039420Z",
-     "iopub.status.busy": "2024-01-15T21:36:47.039134Z",
-     "iopub.status.idle": "2024-01-15T21:36:47.042604Z",
-     "shell.execute_reply": "2024-01-15T21:36:47.042204Z"
+     "iopub.execute_input": "2024-01-17T17:23:13.790167Z",
+     "iopub.status.busy": "2024-01-17T17:23:13.789877Z",
+     "iopub.status.idle": "2024-01-17T17:23:13.793330Z",
+     "shell.execute_reply": "2024-01-17T17:23:13.792851Z"
     }
    },
    "outputs": [
@@ -215,10 +215,10 @@
    "execution_count": 6,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-15T21:36:47.044328Z",
-     "iopub.status.busy": "2024-01-15T21:36:47.044175Z",
-     "iopub.status.idle": "2024-01-15T21:36:47.861104Z",
-     "shell.execute_reply": "2024-01-15T21:36:47.860572Z"
+     "iopub.execute_input": "2024-01-17T17:23:13.795178Z",
+     "iopub.status.busy": "2024-01-17T17:23:13.794873Z",
+     "iopub.status.idle": "2024-01-17T17:23:14.674540Z",
+     "shell.execute_reply": "2024-01-17T17:23:14.674017Z"
     }
    },
    "outputs": [
@@ -237,7 +237,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "finished in 0.15s\n",
+      "finished in 0.18s\n",
       "\n"
      ]
     },
@@ -266,10 +266,10 @@
    "execution_count": 7,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-15T21:36:47.863272Z",
-     "iopub.status.busy": "2024-01-15T21:36:47.862934Z",
-     "iopub.status.idle": "2024-01-15T21:36:47.865785Z",
-     "shell.execute_reply": "2024-01-15T21:36:47.865236Z"
+     "iopub.execute_input": "2024-01-17T17:23:14.676489Z",
+     "iopub.status.busy": "2024-01-17T17:23:14.676306Z",
+     "iopub.status.idle": "2024-01-17T17:23:14.678987Z",
+     "shell.execute_reply": "2024-01-17T17:23:14.678467Z"
     }
    },
    "outputs": [],
@@ -289,10 +289,10 @@
    "execution_count": 8,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-15T21:36:47.867638Z",
-     "iopub.status.busy": "2024-01-15T21:36:47.867348Z",
-     "iopub.status.idle": "2024-01-15T21:36:54.496394Z",
-     "shell.execute_reply": "2024-01-15T21:36:54.495892Z"
+     "iopub.execute_input": "2024-01-17T17:23:14.680972Z",
+     "iopub.status.busy": "2024-01-17T17:23:14.680649Z",
+     "iopub.status.idle": "2024-01-17T17:23:21.123833Z",
+     "shell.execute_reply": "2024-01-17T17:23:21.123261Z"
     }
    },
    "outputs": [],
@@ -313,17 +313,17 @@
    "execution_count": 9,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-15T21:36:54.498755Z",
-     "iopub.status.busy": "2024-01-15T21:36:54.498409Z",
-     "iopub.status.idle": "2024-01-15T21:36:54.505326Z",
-     "shell.execute_reply": "2024-01-15T21:36:54.504772Z"
+     "iopub.execute_input": "2024-01-17T17:23:21.126261Z",
+     "iopub.status.busy": "2024-01-17T17:23:21.126027Z",
+     "iopub.status.idle": "2024-01-17T17:23:21.133513Z",
+     "shell.execute_reply": "2024-01-17T17:23:21.132890Z"
     }
    },
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "Pleasant Lake test case version 0.1.post0+g1b81109\n",
+       "Pleasant Lake test case version 0.1.post1+g6fadcf0\n",
        "Parent model: /home/runner/work/modflow-setup/modflow-setup/examples/data/pleasant/pleasant\n",
        "5 layer(s), 25 row(s), 25 column(s)\n",
        "delr: [200.00...200.00] meters\n",
@@ -363,10 +363,10 @@
    "execution_count": 10,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-15T21:36:54.507279Z",
-     "iopub.status.busy": "2024-01-15T21:36:54.506943Z",
-     "iopub.status.idle": "2024-01-15T21:36:54.510381Z",
-     "shell.execute_reply": "2024-01-15T21:36:54.509909Z"
+     "iopub.execute_input": "2024-01-17T17:23:21.135542Z",
+     "iopub.status.busy": "2024-01-17T17:23:21.135215Z",
+     "iopub.status.idle": "2024-01-17T17:23:21.138724Z",
+     "shell.execute_reply": "2024-01-17T17:23:21.138299Z"
     }
    },
    "outputs": [
@@ -397,10 +397,10 @@
    "execution_count": 11,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-15T21:36:54.512234Z",
-     "iopub.status.busy": "2024-01-15T21:36:54.511927Z",
-     "iopub.status.idle": "2024-01-15T21:36:54.515952Z",
-     "shell.execute_reply": "2024-01-15T21:36:54.515509Z"
+     "iopub.execute_input": "2024-01-17T17:23:21.140608Z",
+     "iopub.status.busy": "2024-01-17T17:23:21.140294Z",
+     "iopub.status.idle": "2024-01-17T17:23:21.144347Z",
+     "shell.execute_reply": "2024-01-17T17:23:21.143944Z"
     }
    },
    "outputs": [
@@ -457,17 +457,17 @@
    "execution_count": 12,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-15T21:36:54.517809Z",
-     "iopub.status.busy": "2024-01-15T21:36:54.517504Z",
-     "iopub.status.idle": "2024-01-15T21:36:54.524111Z",
-     "shell.execute_reply": "2024-01-15T21:36:54.523739Z"
+     "iopub.execute_input": "2024-01-17T17:23:21.146208Z",
+     "iopub.status.busy": "2024-01-17T17:23:21.145909Z",
+     "iopub.status.idle": "2024-01-17T17:23:21.152539Z",
+     "shell.execute_reply": "2024-01-17T17:23:21.152132Z"
     }
    },
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "{'plsnt_lgr_inset': plsnt_lgr_inset model version 0.4.0\n",
+       "{'plsnt_lgr_inset': plsnt_lgr_inset model version 0.4.0.post1+g6fadcf0\n",
        " Parent model: ./plsnt_lgr_parent\n",
        " 5 layer(s), 70 row(s), 80 column(s)\n",
        " delr: [40.00...40.00] meters\n",
@@ -507,17 +507,17 @@
    "execution_count": 13,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-15T21:36:54.526037Z",
-     "iopub.status.busy": "2024-01-15T21:36:54.525667Z",
-     "iopub.status.idle": "2024-01-15T21:36:54.730490Z",
-     "shell.execute_reply": "2024-01-15T21:36:54.729933Z"
+     "iopub.execute_input": "2024-01-17T17:23:21.154471Z",
+     "iopub.status.busy": "2024-01-17T17:23:21.154107Z",
+     "iopub.status.idle": "2024-01-17T17:23:21.441997Z",
+     "shell.execute_reply": "2024-01-17T17:23:21.441476Z"
     }
    },
    "outputs": [
     {
      "data": {
       "text/plain": [
-       "<matplotlib.colorbar.Colorbar at 0x7f3a0ceb7830>"
+       "<matplotlib.colorbar.Colorbar at 0x7faf03068c50>"
       ]
      },
      "execution_count": 13,
@@ -576,10 +576,10 @@
    "execution_count": 14,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-15T21:36:54.732428Z",
-     "iopub.status.busy": "2024-01-15T21:36:54.732262Z",
-     "iopub.status.idle": "2024-01-15T21:36:55.230378Z",
-     "shell.execute_reply": "2024-01-15T21:36:55.229935Z"
+     "iopub.execute_input": "2024-01-17T17:23:21.444325Z",
+     "iopub.status.busy": "2024-01-17T17:23:21.443989Z",
+     "iopub.status.idle": "2024-01-17T17:23:21.956393Z",
+     "shell.execute_reply": "2024-01-17T17:23:21.955899Z"
     }
    },
    "outputs": [
@@ -627,7 +627,7 @@
       "    writing package lak_0...\n",
       "    writing package obs_0...\n",
       "    writing package obs_1...\n",
-      "SFRmaker v. 0.11.2\n",
+      "SFRmaker v. 0.11.2.post1+g56dac8e\n",
       "\n",
       "Running Flopy v. 3.6.0.dev0 diagnostics...\n",
       "passed.\n",
@@ -714,10 +714,10 @@
    "execution_count": 15,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-15T21:36:55.232511Z",
-     "iopub.status.busy": "2024-01-15T21:36:55.232178Z",
-     "iopub.status.idle": "2024-01-15T21:36:58.081825Z",
-     "shell.execute_reply": "2024-01-15T21:36:58.081323Z"
+     "iopub.execute_input": "2024-01-17T17:23:21.958768Z",
+     "iopub.status.busy": "2024-01-17T17:23:21.958377Z",
+     "iopub.status.idle": "2024-01-17T17:23:24.818887Z",
+     "shell.execute_reply": "2024-01-17T17:23:24.818384Z"
     }
    },
    "outputs": [
@@ -747,7 +747,7 @@
       "use of the software.\n",
       "\n",
       " \n",
-      " Run start date and time (yyyy/mm/dd hh:mm:ss): 2024/01/15 21:36:55\n",
+      " Run start date and time (yyyy/mm/dd hh:mm:ss): 2024/01/17 17:23:21\n",
       " \n",
       " Writing simulation list file: mfsim.lst\n",
       " Using Simulation name file: mfsim.nam\n",
@@ -781,7 +781,13 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "    Solving:  Stress period:     6    Time step:     1\n",
+      "    Solving:  Stress period:     6    Time step:     1\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
       "    Solving:  Stress period:     7    Time step:     1\n"
      ]
     },
@@ -814,8 +820,8 @@
      "output_type": "stream",
      "text": [
       " \n",
-      " Run end date and time (yyyy/mm/dd hh:mm:ss): 2024/01/15 21:36:58\n",
-      " Elapsed run time:  2.841 Seconds\n",
+      " Run end date and time (yyyy/mm/dd hh:mm:ss): 2024/01/17 17:23:24\n",
+      " Elapsed run time:  2.851 Seconds\n",
       " \n",
       " Normal termination of simulation.\n"
      ]
@@ -847,10 +853,10 @@
    "execution_count": 16,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-15T21:36:58.083889Z",
-     "iopub.status.busy": "2024-01-15T21:36:58.083569Z",
-     "iopub.status.idle": "2024-01-15T21:36:58.097600Z",
-     "shell.execute_reply": "2024-01-15T21:36:58.097224Z"
+     "iopub.execute_input": "2024-01-17T17:23:24.820947Z",
+     "iopub.status.busy": "2024-01-17T17:23:24.820749Z",
+     "iopub.status.idle": "2024-01-17T17:23:24.835476Z",
+     "shell.execute_reply": "2024-01-17T17:23:24.835084Z"
     }
    },
    "outputs": [],
@@ -887,10 +893,10 @@
    "execution_count": 17,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-15T21:36:58.099298Z",
-     "iopub.status.busy": "2024-01-15T21:36:58.099149Z",
-     "iopub.status.idle": "2024-01-15T21:36:58.169719Z",
-     "shell.execute_reply": "2024-01-15T21:36:58.169307Z"
+     "iopub.execute_input": "2024-01-17T17:23:24.837729Z",
+     "iopub.status.busy": "2024-01-17T17:23:24.837335Z",
+     "iopub.status.idle": "2024-01-17T17:23:24.907632Z",
+     "shell.execute_reply": "2024-01-17T17:23:24.907138Z"
     }
    },
    "outputs": [],
@@ -932,10 +938,10 @@
    "execution_count": 18,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-15T21:36:58.171945Z",
-     "iopub.status.busy": "2024-01-15T21:36:58.171583Z",
-     "iopub.status.idle": "2024-01-15T21:36:59.407938Z",
-     "shell.execute_reply": "2024-01-15T21:36:59.407391Z"
+     "iopub.execute_input": "2024-01-17T17:23:24.910124Z",
+     "iopub.status.busy": "2024-01-17T17:23:24.909948Z",
+     "iopub.status.idle": "2024-01-17T17:23:26.079028Z",
+     "shell.execute_reply": "2024-01-17T17:23:26.078521Z"
     }
    },
    "outputs": [
@@ -1044,10 +1050,10 @@
    "execution_count": 19,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-15T21:36:59.410322Z",
-     "iopub.status.busy": "2024-01-15T21:36:59.410005Z",
-     "iopub.status.idle": "2024-01-15T21:37:33.211425Z",
-     "shell.execute_reply": "2024-01-15T21:37:33.210984Z"
+     "iopub.execute_input": "2024-01-17T17:23:26.081170Z",
+     "iopub.status.busy": "2024-01-17T17:23:26.080876Z",
+     "iopub.status.idle": "2024-01-17T17:23:54.320616Z",
+     "shell.execute_reply": "2024-01-17T17:23:54.320140Z"
     }
    },
    "outputs": [
@@ -1111,238 +1117,238 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_parent/rasters/idomain_lay1.tif\n"
+      "wrote postproc/plsnt_lgr_parent/rasters/idomain_lay1.tif\n",
+      "wrote postproc/plsnt_lgr_parent/rasters/idomain_lay2.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_parent/rasters/idomain_lay2.tif\n",
-      "wrote postproc/plsnt_lgr_parent/rasters/idomain_lay3.tif\n"
+      "wrote postproc/plsnt_lgr_parent/rasters/idomain_lay3.tif\n",
+      "wrote postproc/plsnt_lgr_parent/rasters/idomain_lay4.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_parent/rasters/idomain_lay4.tif\n",
       "\n",
       "ic package...\n",
       "strt:\n",
-      "wrote postproc/plsnt_lgr_parent/rasters/strt_lay0.tif\n"
+      "wrote postproc/plsnt_lgr_parent/rasters/strt_lay0.tif\n",
+      "wrote postproc/plsnt_lgr_parent/rasters/strt_lay1.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_parent/rasters/strt_lay1.tif\n",
-      "wrote postproc/plsnt_lgr_parent/rasters/strt_lay2.tif\n"
+      "wrote postproc/plsnt_lgr_parent/rasters/strt_lay2.tif\n",
+      "wrote postproc/plsnt_lgr_parent/rasters/strt_lay3.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_parent/rasters/strt_lay3.tif\n",
-      "wrote postproc/plsnt_lgr_parent/rasters/strt_lay4.tif\n"
-     ]
-    },
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
+      "wrote postproc/plsnt_lgr_parent/rasters/strt_lay4.tif\n",
       "\n",
       "npf package...\n",
       "icelltype:\n",
-      "wrote postproc/plsnt_lgr_parent/rasters/icelltype_lay0.tif\n",
-      "wrote postproc/plsnt_lgr_parent/rasters/icelltype_lay1.tif\n"
+      "wrote postproc/plsnt_lgr_parent/rasters/icelltype_lay0.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_parent/rasters/icelltype_lay2.tif\n",
-      "wrote postproc/plsnt_lgr_parent/rasters/icelltype_lay3.tif\n"
+      "wrote postproc/plsnt_lgr_parent/rasters/icelltype_lay1.tif\n",
+      "wrote postproc/plsnt_lgr_parent/rasters/icelltype_lay2.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_parent/rasters/icelltype_lay4.tif\n",
+      "wrote postproc/plsnt_lgr_parent/rasters/icelltype_lay3.tif\n",
+      "wrote postproc/plsnt_lgr_parent/rasters/icelltype_lay4.tif\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
       "k:\n",
-      "wrote postproc/plsnt_lgr_parent/rasters/k_lay0.tif\n"
+      "wrote postproc/plsnt_lgr_parent/rasters/k_lay0.tif\n",
+      "wrote postproc/plsnt_lgr_parent/rasters/k_lay1.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_parent/rasters/k_lay1.tif\n",
-      "wrote postproc/plsnt_lgr_parent/rasters/k_lay2.tif\n"
+      "wrote postproc/plsnt_lgr_parent/rasters/k_lay2.tif\n",
+      "wrote postproc/plsnt_lgr_parent/rasters/k_lay3.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_parent/rasters/k_lay3.tif\n",
-      "wrote postproc/plsnt_lgr_parent/rasters/k_lay4.tif\n"
-     ]
-    },
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
+      "wrote postproc/plsnt_lgr_parent/rasters/k_lay4.tif\n",
       "k33:\n",
-      "wrote postproc/plsnt_lgr_parent/rasters/k33_lay0.tif\n",
-      "wrote postproc/plsnt_lgr_parent/rasters/k33_lay1.tif\n"
+      "wrote postproc/plsnt_lgr_parent/rasters/k33_lay0.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_parent/rasters/k33_lay2.tif\n",
-      "wrote postproc/plsnt_lgr_parent/rasters/k33_lay3.tif\n"
+      "wrote postproc/plsnt_lgr_parent/rasters/k33_lay1.tif\n",
+      "wrote postproc/plsnt_lgr_parent/rasters/k33_lay2.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_parent/rasters/k33_lay4.tif\n",
+      "wrote postproc/plsnt_lgr_parent/rasters/k33_lay3.tif\n",
+      "wrote postproc/plsnt_lgr_parent/rasters/k33_lay4.tif\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
       "\n",
       "sto package...\n",
       "iconvert:\n",
-      "wrote postproc/plsnt_lgr_parent/rasters/iconvert_lay0.tif\n"
+      "wrote postproc/plsnt_lgr_parent/rasters/iconvert_lay0.tif\n",
+      "wrote postproc/plsnt_lgr_parent/rasters/iconvert_lay1.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_parent/rasters/iconvert_lay1.tif\n",
-      "wrote postproc/plsnt_lgr_parent/rasters/iconvert_lay2.tif\n"
+      "wrote postproc/plsnt_lgr_parent/rasters/iconvert_lay2.tif\n",
+      "wrote postproc/plsnt_lgr_parent/rasters/iconvert_lay3.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_parent/rasters/iconvert_lay3.tif\n",
-      "wrote postproc/plsnt_lgr_parent/rasters/iconvert_lay4.tif\n"
-     ]
-    },
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
+      "wrote postproc/plsnt_lgr_parent/rasters/iconvert_lay4.tif\n",
       "ss:\n",
-      "wrote postproc/plsnt_lgr_parent/rasters/ss_lay0.tif\n",
-      "wrote postproc/plsnt_lgr_parent/rasters/ss_lay1.tif\n"
+      "wrote postproc/plsnt_lgr_parent/rasters/ss_lay0.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_parent/rasters/ss_lay2.tif\n",
-      "wrote postproc/plsnt_lgr_parent/rasters/ss_lay3.tif\n"
+      "wrote postproc/plsnt_lgr_parent/rasters/ss_lay1.tif\n",
+      "wrote postproc/plsnt_lgr_parent/rasters/ss_lay2.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_parent/rasters/ss_lay4.tif\n",
+      "wrote postproc/plsnt_lgr_parent/rasters/ss_lay3.tif\n",
+      "wrote postproc/plsnt_lgr_parent/rasters/ss_lay4.tif\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
       "sy:\n",
-      "wrote postproc/plsnt_lgr_parent/rasters/sy_lay0.tif\n"
+      "wrote postproc/plsnt_lgr_parent/rasters/sy_lay0.tif\n",
+      "wrote postproc/plsnt_lgr_parent/rasters/sy_lay1.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_parent/rasters/sy_lay1.tif\n",
-      "wrote postproc/plsnt_lgr_parent/rasters/sy_lay2.tif\n"
+      "wrote postproc/plsnt_lgr_parent/rasters/sy_lay2.tif\n",
+      "wrote postproc/plsnt_lgr_parent/rasters/sy_lay3.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_parent/rasters/sy_lay3.tif\n",
-      "wrote postproc/plsnt_lgr_parent/rasters/sy_lay4.tif\n"
-     ]
-    },
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
+      "wrote postproc/plsnt_lgr_parent/rasters/sy_lay4.tif\n",
       "\n",
       "rcha_0 package...\n",
       "irch:\n",
-      "wrote postproc/plsnt_lgr_parent/rasters/irch_per0.tif\n",
-      "recharge:\n"
+      "wrote postproc/plsnt_lgr_parent/rasters/irch_per0.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_parent/rasters/recharge_per0.tif\n",
-      "wrote postproc/plsnt_lgr_parent/rasters/recharge_per1.tif\n"
+      "recharge:\n",
+      "wrote postproc/plsnt_lgr_parent/rasters/recharge_per0.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_parent/rasters/recharge_per2.tif\n",
-      "wrote postproc/plsnt_lgr_parent/rasters/recharge_per3.tif\n"
+      "wrote postproc/plsnt_lgr_parent/rasters/recharge_per1.tif\n",
+      "wrote postproc/plsnt_lgr_parent/rasters/recharge_per2.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_parent/rasters/recharge_per4.tif\n",
-      "wrote postproc/plsnt_lgr_parent/rasters/recharge_per5.tif\n"
+      "wrote postproc/plsnt_lgr_parent/rasters/recharge_per3.tif\n",
+      "wrote postproc/plsnt_lgr_parent/rasters/recharge_per4.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_parent/rasters/recharge_per6.tif\n",
-      "wrote postproc/plsnt_lgr_parent/rasters/recharge_per7.tif\n"
+      "wrote postproc/plsnt_lgr_parent/rasters/recharge_per5.tif\n",
+      "wrote postproc/plsnt_lgr_parent/rasters/recharge_per6.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_parent/rasters/recharge_per8.tif\n",
-      "wrote postproc/plsnt_lgr_parent/rasters/recharge_per9.tif\n"
+      "wrote postproc/plsnt_lgr_parent/rasters/recharge_per7.tif\n",
+      "wrote postproc/plsnt_lgr_parent/rasters/recharge_per8.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_parent/rasters/recharge_per10.tif\n",
-      "wrote postproc/plsnt_lgr_parent/rasters/recharge_per11.tif\n"
+      "wrote postproc/plsnt_lgr_parent/rasters/recharge_per9.tif\n",
+      "wrote postproc/plsnt_lgr_parent/rasters/recharge_per10.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_parent/rasters/recharge_per12.tif\n",
+      "wrote postproc/plsnt_lgr_parent/rasters/recharge_per11.tif\n",
+      "wrote postproc/plsnt_lgr_parent/rasters/recharge_per12.tif\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
       "\n",
       "chd_0 package...\n"
      ]
@@ -1429,54 +1435,48 @@
      "text": [
       "top:\n",
       "wrote postproc/plsnt_lgr_inset/rasters/top.tif\n",
-      "botm:\n"
+      "botm:\n",
+      "wrote postproc/plsnt_lgr_inset/rasters/botm_lay0.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_inset/rasters/botm_lay0.tif\n",
-      "wrote postproc/plsnt_lgr_inset/rasters/botm_lay1.tif\n"
+      "wrote postproc/plsnt_lgr_inset/rasters/botm_lay1.tif\n",
+      "wrote postproc/plsnt_lgr_inset/rasters/botm_lay2.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_inset/rasters/botm_lay2.tif\n",
-      "wrote postproc/plsnt_lgr_inset/rasters/botm_lay3.tif\n"
+      "wrote postproc/plsnt_lgr_inset/rasters/botm_lay3.tif\n",
+      "wrote postproc/plsnt_lgr_inset/rasters/botm_lay4.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_inset/rasters/botm_lay4.tif\n",
       "idomain:\n",
-      "wrote postproc/plsnt_lgr_inset/rasters/idomain_lay0.tif\n"
+      "wrote postproc/plsnt_lgr_inset/rasters/idomain_lay0.tif\n",
+      "wrote postproc/plsnt_lgr_inset/rasters/idomain_lay1.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_inset/rasters/idomain_lay1.tif\n",
-      "wrote postproc/plsnt_lgr_inset/rasters/idomain_lay2.tif\n"
+      "wrote postproc/plsnt_lgr_inset/rasters/idomain_lay2.tif\n",
+      "wrote postproc/plsnt_lgr_inset/rasters/idomain_lay3.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_inset/rasters/idomain_lay3.tif\n",
-      "wrote postproc/plsnt_lgr_inset/rasters/idomain_lay4.tif\n"
-     ]
-    },
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
+      "wrote postproc/plsnt_lgr_inset/rasters/idomain_lay4.tif\n",
       "\n",
       "ic package...\n",
       "strt:\n",
@@ -1522,30 +1522,24 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_inset/rasters/icelltype_lay4.tif\n"
-     ]
-    },
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
+      "wrote postproc/plsnt_lgr_inset/rasters/icelltype_lay4.tif\n",
       "k:\n",
-      "wrote postproc/plsnt_lgr_inset/rasters/k_lay0.tif\n",
-      "wrote postproc/plsnt_lgr_inset/rasters/k_lay1.tif\n"
+      "wrote postproc/plsnt_lgr_inset/rasters/k_lay0.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_inset/rasters/k_lay2.tif\n",
-      "wrote postproc/plsnt_lgr_inset/rasters/k_lay3.tif\n"
+      "wrote postproc/plsnt_lgr_inset/rasters/k_lay1.tif\n",
+      "wrote postproc/plsnt_lgr_inset/rasters/k_lay2.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
+      "wrote postproc/plsnt_lgr_inset/rasters/k_lay3.tif\n",
       "wrote postproc/plsnt_lgr_inset/rasters/k_lay4.tif\n"
      ]
     },
@@ -1614,13 +1608,7 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_inset/rasters/ss_lay4.tif\n"
-     ]
-    },
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
+      "wrote postproc/plsnt_lgr_inset/rasters/ss_lay4.tif\n",
       "sy:\n",
       "wrote postproc/plsnt_lgr_inset/rasters/sy_lay0.tif\n"
      ]
@@ -1655,62 +1643,62 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "recharge:\n"
+      "recharge:\n",
+      "wrote postproc/plsnt_lgr_inset/rasters/recharge_per0.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_inset/rasters/recharge_per0.tif\n",
-      "wrote postproc/plsnt_lgr_inset/rasters/recharge_per1.tif\n"
+      "wrote postproc/plsnt_lgr_inset/rasters/recharge_per1.tif\n",
+      "wrote postproc/plsnt_lgr_inset/rasters/recharge_per2.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_inset/rasters/recharge_per2.tif\n",
-      "wrote postproc/plsnt_lgr_inset/rasters/recharge_per3.tif\n"
+      "wrote postproc/plsnt_lgr_inset/rasters/recharge_per3.tif\n",
+      "wrote postproc/plsnt_lgr_inset/rasters/recharge_per4.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_inset/rasters/recharge_per4.tif\n",
-      "wrote postproc/plsnt_lgr_inset/rasters/recharge_per5.tif\n"
+      "wrote postproc/plsnt_lgr_inset/rasters/recharge_per5.tif\n",
+      "wrote postproc/plsnt_lgr_inset/rasters/recharge_per6.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_inset/rasters/recharge_per6.tif\n",
-      "wrote postproc/plsnt_lgr_inset/rasters/recharge_per7.tif\n"
+      "wrote postproc/plsnt_lgr_inset/rasters/recharge_per7.tif\n",
+      "wrote postproc/plsnt_lgr_inset/rasters/recharge_per8.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_inset/rasters/recharge_per8.tif\n",
-      "wrote postproc/plsnt_lgr_inset/rasters/recharge_per9.tif\n"
+      "wrote postproc/plsnt_lgr_inset/rasters/recharge_per9.tif\n",
+      "wrote postproc/plsnt_lgr_inset/rasters/recharge_per10.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_inset/rasters/recharge_per10.tif\n",
-      "wrote postproc/plsnt_lgr_inset/rasters/recharge_per11.tif\n"
+      "wrote postproc/plsnt_lgr_inset/rasters/recharge_per11.tif\n",
+      "wrote postproc/plsnt_lgr_inset/rasters/recharge_per12.tif\n"
      ]
     },
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "wrote postproc/plsnt_lgr_inset/rasters/recharge_per12.tif\n",
       "\n",
       "sfr_0 package...\n",
       "writing postproc/plsnt_lgr_inset/shps/plsnt_lgr_inset.sfr.shp... Done\n",
@@ -1722,14 +1710,7 @@
       "skipped, not implemented yet\n",
       "\n",
       "obs_1 package...\n",
-      "writing postproc/plsnt_lgr_inset/shps/obs1_stress_period_data.shp..."
-     ]
-    },
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      " Done\n"
+      "writing postproc/plsnt_lgr_inset/shps/obs1_stress_period_data.shp... Done\n"
      ]
     }
    ],
@@ -1750,10 +1731,10 @@
    "execution_count": 20,
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2024-01-15T21:37:33.214133Z",
-     "iopub.status.busy": "2024-01-15T21:37:33.213596Z",
-     "iopub.status.idle": "2024-01-15T21:37:34.691234Z",
-     "shell.execute_reply": "2024-01-15T21:37:34.690780Z"
+     "iopub.execute_input": "2024-01-17T17:23:54.323147Z",
+     "iopub.status.busy": "2024-01-17T17:23:54.322592Z",
+     "iopub.status.idle": "2024-01-17T17:23:55.832166Z",
+     "shell.execute_reply": "2024-01-17T17:23:55.831693Z"
     }
    },
    "outputs": [
