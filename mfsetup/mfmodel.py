@@ -244,7 +244,6 @@ class MFsetupMixin():
                 self._modelgrid._idomain = self.dis.idomain.array
             elif 'bas6' in self.get_package_list():
                 self._modelgrid._idomain = self.bas6.ibound.array
-            #self.setup_grid()
         return self._modelgrid
 
     @property
@@ -1379,9 +1378,11 @@ class MFsetupMixin():
     def setup_grid(self):
         """Set up the attached modelgrid instance from configuration input
         """
+        # in case model.setup_grid() is being called again
         if self.cfg['grid']:
             cfg = self.cfg['grid']
             cfg['rotation'] = self.cfg['grid']['angrot']
+        # first time model.setup_grid() is called
         else:
             cfg = self.cfg['setup_grid'] #.copy()
         # update grid configuration with any information supplied to dis package

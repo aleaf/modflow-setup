@@ -254,7 +254,8 @@ class MF6model(MFsetupMixin, mf6.ModflowGwf):
                           write_fmt='%d', dtype=int)
         self.dis.idomain = self.cfg['dis']['griddata']['idomain']
         self._mg_resync = False
-        self.setup_grid()  # reset the model grid
+        self.modelgrid._botm = self.dis.botm.array
+        self.modelgrid._idomain = self.dis.idomain.array
 
         # rebuild irch to keep it in sync with idomain changes
         irch = make_irch(idomain)
