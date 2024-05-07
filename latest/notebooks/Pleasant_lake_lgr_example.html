@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pleasant Lake Example &mdash; modflow-setup 0.4.0.post3+g161e2d0 documentation</title>
+  <title>Pleasant Lake Example &mdash; modflow-setup 0.5.0.post3+g15b5ad7 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
@@ -16,8 +16,8 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/documentation_options.js?v=e7fdd336"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/documentation_options.js?v=b2f283c0"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../_static/copybutton.js?v=f281be69"></script>
@@ -43,7 +43,7 @@
             modflow-setup
           </a>
               <div class="version">
-                0.4.0.post3+g161e2d0
+                0.5.0.post3+g15b5ad7
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -140,7 +140,7 @@
 needed, to simulate farfield water-use activity (chiefly irrigated agriculture) in order to delineate a limit of connection, as well as to incorporate distant hydrologic boundaries. Adopting a fine enough discretization for the lake detail throughout the farfield would have resulted in a model with more cells than could be practically managed. To mitigate this, three models were combined: a large regional model built with MODFLOW-NWT (Niswonger et al. 2011), an intermediate MODFLOW 6 model inset
 within the regional model to simulate the irrigated agriculture area, and a refined MODFLOW 6 inset model (nested within the intermediate model) to simulate the lake. Regional groundwater flow and the effects of distant boundaries were simulated with the MODFLOW-NWT model, which was coupled sequentially (one-way) to the MODFLOW 6 models through time-varying specified head boundaries along the intermediate MODFLOW 6 model perimeter. The two MODFLOW 6 models were coupled dynamically (both ways)
 within the groundwater flow solution, allowing for feedback between the models. Estimates of groundwater recharge for the MODFLOW models were provided by a soil water balance code (SWB; Westenbroek et al 2018) simulation that could consider alternative assumptions of climate and land use. Net infiltration estimates from the SWB model were conveyed to the Recharge Packages in the MODFLOW models using the NetCDF functionality in Modflow-setup.</p>
-<p><img alt="d8338081291346e2ac95b1136d276b8d" src="https://github.com/aleaf/modflow-setup/blob/develop/docs/source/_static/fig1_pleasant_lake_model.jpg?raw=true" /></p>
+<p><img alt="a9ed93b002c04aaa9f19b4c1e22bd224" src="https://github.com/aleaf/modflow-setup/blob/develop/docs/source/_static/fig1_pleasant_lake_model.jpg?raw=true" /></p>
 <p><strong>Figure 1</strong>: The full Pleasant Lake model domain with location map, showing the relationship between the regional, intermediate and LGR inset models, as well as the irrigation wells considered.</p>
 <p>Most details of the Fienen et al (2021) model are included here, but to reduce file sizes and execution time, a smaller Modflow-6 simulation domain is used. The smaller domain is for illustration purposes only, and is not intended to be adequate for representing pumping impacts or providing a sufficient distance to the perimeter boundaries.</p>
 <ul class="simple">
@@ -216,8 +216,8 @@ added functionality.</p>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
 5 layer(s), 25 row(s), 25 column(s)
-delr: [200.00...200.00] meters
-delc: [200.00...200.00] meters
+delr: [200.00...200.00] undefined
+delc: [200.00...200.00] undefined
 CRS: EPSG:3070
 length units: meters
 xll: 553000.0; yll: 388000.0; rotation: 0.0
@@ -238,13 +238,13 @@ Bounds: (553000.0, 558000.0, 388000.0, 393000.0)
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-70 row(s), 80 column(s)
-delr: [40.00...40.00] meters
-delc: [40.00...40.00] meters
+75 row(s), 85 column(s)
+delr: [40.00...40.00] undefined
+delc: [40.00...40.00] undefined
 CRS: EPSG:3070
 length units: meters
-xll: 554200.0; yll: 389000.0; rotation: 0.0
-Bounds: (554200.0, 557400.0, 389000.0, 391800.0)
+xll: 554200.0; yll: 388800.0; rotation: 0
+Bounds: (554200.0, 557600.0, 388800.0, 391800.0)
 </pre></div></div>
 </div>
 </section>
@@ -281,32 +281,18 @@ Bounds: (554200.0, 557400.0, 389000.0, 391800.0)
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-creating shapely Polygons of grid cells...
-finished in 0.01s
-
-writing postproc/shps/plsnt_lgr_parent_grid.shp... Done
-creating shapely Polygons of grid cells...
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-finished in 0.17s
-
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
+creating shapely Polygons of grid cells...
+finished in 0.02s
+
+writing postproc/shps/plsnt_lgr_parent_grid.shp... Done
+creating shapely Polygons of grid cells...
+finished in 0.23s
+
 writing postproc/shps/plsnt_lgr_inset_grid.shp... Done
 </pre></div></div>
 </div>
@@ -348,11 +334,11 @@ writing postproc/shps/plsnt_lgr_inset_grid.shp... Done
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Pleasant Lake test case version 0.1.post3+g161e2d0
+Pleasant Lake test case version 0.1.post3+g15b5ad7
 Parent model: /home/runner/work/modflow-setup/modflow-setup/examples/data/pleasant/pleasant
 5 layer(s), 25 row(s), 25 column(s)
-delr: [200.00...200.00] meters
-delc: [200.00...200.00] meters
+delr: [200.00...200.00] undefined
+delc: [200.00...200.00] undefined
 CRS: EPSG:3070
 length units: meters
 xll: 553000.0; yll: 388000.0; rotation: 0.0
@@ -444,15 +430,15 @@ defaultdict(dict,
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-{&#39;plsnt_lgr_inset&#39;: plsnt_lgr_inset model version 0.4.0.post3+g161e2d0
+{&#39;plsnt_lgr_inset&#39;: plsnt_lgr_inset model version 0.5.0.post3+g15b5ad7
  Parent model: ./plsnt_lgr_parent
- 5 layer(s), 70 row(s), 80 column(s)
- delr: [40.00...40.00] meters
- delc: [40.00...40.00] meters
+ 5 layer(s), 75 row(s), 85 column(s)
+ delr: [40.00...40.00] undefined
+ delc: [40.00...40.00] undefined
  CRS: EPSG:3070
  length units: meters
- xll: 554200.0; yll: 389000.0; rotation: 0.0
- Bounds: (554200.0, 557400.0, 389000.0, 391800.0)
+ xll: 554200.0; yll: 388800.0; rotation: 0
+ Bounds: (554200.0, 557600.0, 388800.0, 391800.0)
  Packages: dis ic npf sto rcha_0 oc sfr_0 lak_0 obs_0 obs_1
  13 period(s):
   per start_datetime end_datetime  perlen  steady  nstp
@@ -505,7 +491,7 @@ defaultdict(dict,
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-&lt;matplotlib.colorbar.Colorbar at 0x7f5e25dd7b30&gt;
+&lt;matplotlib.colorbar.Colorbar at 0x7f54ac4235c0&gt;
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -526,7 +512,7 @@ defaultdict(dict,
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
+<div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
@@ -550,13 +536,6 @@ INFORMATION: maxbound in (&#39;gwf6&#39;, &#39;chd&#39;, &#39;dimensions&#39;) c
     writing package obs_0...
     writing package sfr_0...
     writing package wel_0...
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 INFORMATION: maxbound in (&#39;gwf6&#39;, &#39;wel&#39;, &#39;dimensions&#39;) changed to 2 based on size of stress_period_data
     writing package obs_1...
     writing package obs_2...
@@ -572,7 +551,7 @@ INFORMATION: maxbound in (&#39;gwf6&#39;, &#39;wel&#39;, &#39;dimensions&#39;) c
     writing package lak_0...
     writing package obs_0...
     writing package obs_1...
-SFRmaker v. 0.11.2.post1+g56dac8e
+SFRmaker v. 0.11.2.post3+gee5d4d4
 
 Running Flopy v. 3.7.0.dev0 diagnostics...
 passed.
@@ -608,23 +587,21 @@ isfropt setting of 1,2 or 3 requires strtop information!
 
 
 Checking segment_data for downstream rises in streambed elevation...
-Segment elevup and elevdn not specified for nstrm=-13 and isfropt=1
+Segment elevup and elevdn not specified for nstrm=-9 and isfropt=1
 passed.
 
 Checking reach_data for downstream rises in streambed elevation...
-3 reaches encountered with strtop &lt; strtop of downstream reach.
+1 reaches encountered with strtop &lt; strtop of downstream reach.
 Elevation rises:
 k i j iseg ireach strtop strtopdn d_strtop reachID diff
-4 20 16 2 1 290.3638610839844 294.76507568359375 4.401214599609375 5 -4.401214599609375
-4 20 17 2 2 290.3638610839844 293.5867614746094 3.222900390625 6 -3.222900390625
-4 21 17 2 3 290.3638610839844 292.6883850097656 2.32452392578125 7 -2.32452392578125
+4 21 17 2 1 290.66015625 292.6883850097656 2.028228759765625 3 -2.028228759765625
 
 
 Checking reach_data for inconsistencies between streambed elevations and the model grid...
 passed.
 
 Checking segment_data for inconsistencies between segment end elevations and the model grid...
-Segment elevup and elevdn not specified for nstrm=-13 and isfropt=1
+Segment elevup and elevdn not specified for nstrm=-9 and isfropt=1
 passed.
 
 Checking for streambed slopes of less than 0.0001...
@@ -680,90 +657,27 @@ liable for any damages resulting from the authorized or unauthorized
 use of the software.
 
 
- Run start date and time (yyyy/mm/dd hh:mm:ss): 2024/02/15 17:49:37
+ Run start date and time (yyyy/mm/dd hh:mm:ss): 2024/05/07 16:08:38
 
  Writing simulation list file: mfsim.lst
  Using Simulation name file: mfsim.nam
 
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
     Solving:  Stress period:     1    Time step:     1
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
     Solving:  Stress period:     2    Time step:     1
     Solving:  Stress period:     3    Time step:     1
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
     Solving:  Stress period:     4    Time step:     1
     Solving:  Stress period:     5    Time step:     1
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
     Solving:  Stress period:     6    Time step:     1
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
     Solving:  Stress period:     7    Time step:     1
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
     Solving:  Stress period:     8    Time step:     1
     Solving:  Stress period:     9    Time step:     1
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
     Solving:  Stress period:    10    Time step:     1
     Solving:  Stress period:    11    Time step:     1
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
     Solving:  Stress period:    12    Time step:     1
     Solving:  Stress period:    13    Time step:     1
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 
- Run end date and time (yyyy/mm/dd hh:mm:ss): 2024/02/15 17:49:40
- Elapsed run time:  2.842 Seconds
+ Run end date and time (yyyy/mm/dd hh:mm:ss): 2024/05/07 16:08:42
+ Elapsed run time:  3.486 Seconds
 
  Normal termination of simulation.
 </pre></div></div>
@@ -948,7 +862,7 @@ use of the software.
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
+<div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
@@ -960,352 +874,93 @@ creating postproc/plsnt_lgr_parent/rasters...
 dis package...
 wrote postproc/plsnt_lgr_parent/rasters/thickness_lay0.tif
 wrote postproc/plsnt_lgr_parent/rasters/thickness_lay1.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_parent/rasters/thickness_lay2.tif
 wrote postproc/plsnt_lgr_parent/rasters/thickness_lay3.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_parent/rasters/thickness_lay4.tif
 top:
 wrote postproc/plsnt_lgr_parent/rasters/top.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 botm:
 wrote postproc/plsnt_lgr_parent/rasters/botm_lay0.tif
 wrote postproc/plsnt_lgr_parent/rasters/botm_lay1.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_parent/rasters/botm_lay2.tif
 wrote postproc/plsnt_lgr_parent/rasters/botm_lay3.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_parent/rasters/botm_lay4.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 idomain:
 wrote postproc/plsnt_lgr_parent/rasters/idomain_lay0.tif
 wrote postproc/plsnt_lgr_parent/rasters/idomain_lay1.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_parent/rasters/idomain_lay2.tif
 wrote postproc/plsnt_lgr_parent/rasters/idomain_lay3.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_parent/rasters/idomain_lay4.tif
 
 ic package...
 strt:
 wrote postproc/plsnt_lgr_parent/rasters/strt_lay0.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_parent/rasters/strt_lay1.tif
 wrote postproc/plsnt_lgr_parent/rasters/strt_lay2.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_parent/rasters/strt_lay3.tif
 wrote postproc/plsnt_lgr_parent/rasters/strt_lay4.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 
 npf package...
 icelltype:
 wrote postproc/plsnt_lgr_parent/rasters/icelltype_lay0.tif
 wrote postproc/plsnt_lgr_parent/rasters/icelltype_lay1.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_parent/rasters/icelltype_lay2.tif
 wrote postproc/plsnt_lgr_parent/rasters/icelltype_lay3.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_parent/rasters/icelltype_lay4.tif
 k:
 wrote postproc/plsnt_lgr_parent/rasters/k_lay0.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_parent/rasters/k_lay1.tif
 wrote postproc/plsnt_lgr_parent/rasters/k_lay2.tif
 wrote postproc/plsnt_lgr_parent/rasters/k_lay3.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_parent/rasters/k_lay4.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 k33:
 wrote postproc/plsnt_lgr_parent/rasters/k33_lay0.tif
 wrote postproc/plsnt_lgr_parent/rasters/k33_lay1.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_parent/rasters/k33_lay2.tif
 wrote postproc/plsnt_lgr_parent/rasters/k33_lay3.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_parent/rasters/k33_lay4.tif
 
 sto package...
 iconvert:
 wrote postproc/plsnt_lgr_parent/rasters/iconvert_lay0.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_parent/rasters/iconvert_lay1.tif
 wrote postproc/plsnt_lgr_parent/rasters/iconvert_lay2.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_parent/rasters/iconvert_lay3.tif
 wrote postproc/plsnt_lgr_parent/rasters/iconvert_lay4.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 ss:
 wrote postproc/plsnt_lgr_parent/rasters/ss_lay0.tif
 wrote postproc/plsnt_lgr_parent/rasters/ss_lay1.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_parent/rasters/ss_lay2.tif
 wrote postproc/plsnt_lgr_parent/rasters/ss_lay3.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_parent/rasters/ss_lay4.tif
 sy:
 wrote postproc/plsnt_lgr_parent/rasters/sy_lay0.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_parent/rasters/sy_lay1.tif
 wrote postproc/plsnt_lgr_parent/rasters/sy_lay2.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_parent/rasters/sy_lay3.tif
 wrote postproc/plsnt_lgr_parent/rasters/sy_lay4.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 
 rcha_0 package...
 irch:
 wrote postproc/plsnt_lgr_parent/rasters/irch_per0.tif
 recharge:
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_parent/rasters/recharge_per0.tif
 wrote postproc/plsnt_lgr_parent/rasters/recharge_per1.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_parent/rasters/recharge_per2.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_parent/rasters/recharge_per3.tif
 wrote postproc/plsnt_lgr_parent/rasters/recharge_per4.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_parent/rasters/recharge_per5.tif
 wrote postproc/plsnt_lgr_parent/rasters/recharge_per6.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_parent/rasters/recharge_per7.tif
 wrote postproc/plsnt_lgr_parent/rasters/recharge_per8.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_parent/rasters/recharge_per9.tif
 wrote postproc/plsnt_lgr_parent/rasters/recharge_per10.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_parent/rasters/recharge_per11.tif
 wrote postproc/plsnt_lgr_parent/rasters/recharge_per12.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 
 chd_0 package...
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 writing postproc/plsnt_lgr_parent/shps/chd0_stress_period_data.shp... Done
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 head:
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 boundname:
 Warning, variable: boundname
 Export of non-period data from transientlists not implemented!
@@ -1317,22 +972,8 @@ sfr_0 package...
 writing postproc/plsnt_lgr_parent/shps/plsnt_lgr_parent.sfr.shp... Done
 
 wel_0 package...
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 writing postproc/plsnt_lgr_parent/shps/wel0_stress_period_data.shp... Done
 q:
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 boundname:
 Warning, variable: boundname
 Export of non-period data from transientlists not implemented!
@@ -1349,327 +990,89 @@ creating postproc/plsnt_lgr_inset/rasters...
 dis package...
 wrote postproc/plsnt_lgr_inset/rasters/thickness_lay0.tif
 wrote postproc/plsnt_lgr_inset/rasters/thickness_lay1.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_inset/rasters/thickness_lay2.tif
 wrote postproc/plsnt_lgr_inset/rasters/thickness_lay3.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_inset/rasters/thickness_lay4.tif
 top:
 wrote postproc/plsnt_lgr_inset/rasters/top.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 botm:
 wrote postproc/plsnt_lgr_inset/rasters/botm_lay0.tif
 wrote postproc/plsnt_lgr_inset/rasters/botm_lay1.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_inset/rasters/botm_lay2.tif
 wrote postproc/plsnt_lgr_inset/rasters/botm_lay3.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_inset/rasters/botm_lay4.tif
 idomain:
 wrote postproc/plsnt_lgr_inset/rasters/idomain_lay0.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_inset/rasters/idomain_lay1.tif
 wrote postproc/plsnt_lgr_inset/rasters/idomain_lay2.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_inset/rasters/idomain_lay3.tif
 wrote postproc/plsnt_lgr_inset/rasters/idomain_lay4.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 
 ic package...
 strt:
 wrote postproc/plsnt_lgr_inset/rasters/strt_lay0.tif
 wrote postproc/plsnt_lgr_inset/rasters/strt_lay1.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_inset/rasters/strt_lay2.tif
 wrote postproc/plsnt_lgr_inset/rasters/strt_lay3.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_inset/rasters/strt_lay4.tif
 
 npf package...
 icelltype:
 wrote postproc/plsnt_lgr_inset/rasters/icelltype_lay0.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_inset/rasters/icelltype_lay1.tif
 wrote postproc/plsnt_lgr_inset/rasters/icelltype_lay2.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_inset/rasters/icelltype_lay3.tif
 wrote postproc/plsnt_lgr_inset/rasters/icelltype_lay4.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 k:
 wrote postproc/plsnt_lgr_inset/rasters/k_lay0.tif
 wrote postproc/plsnt_lgr_inset/rasters/k_lay1.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_inset/rasters/k_lay2.tif
 wrote postproc/plsnt_lgr_inset/rasters/k_lay3.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_inset/rasters/k_lay4.tif
 k33:
 wrote postproc/plsnt_lgr_inset/rasters/k33_lay0.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_inset/rasters/k33_lay1.tif
 wrote postproc/plsnt_lgr_inset/rasters/k33_lay2.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_inset/rasters/k33_lay3.tif
 wrote postproc/plsnt_lgr_inset/rasters/k33_lay4.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 
 sto package...
 iconvert:
 wrote postproc/plsnt_lgr_inset/rasters/iconvert_lay0.tif
 wrote postproc/plsnt_lgr_inset/rasters/iconvert_lay1.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_inset/rasters/iconvert_lay2.tif
 wrote postproc/plsnt_lgr_inset/rasters/iconvert_lay3.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_inset/rasters/iconvert_lay4.tif
 ss:
 wrote postproc/plsnt_lgr_inset/rasters/ss_lay0.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_inset/rasters/ss_lay1.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_inset/rasters/ss_lay2.tif
 wrote postproc/plsnt_lgr_inset/rasters/ss_lay3.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_inset/rasters/ss_lay4.tif
 sy:
 wrote postproc/plsnt_lgr_inset/rasters/sy_lay0.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_inset/rasters/sy_lay1.tif
 wrote postproc/plsnt_lgr_inset/rasters/sy_lay2.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_inset/rasters/sy_lay3.tif
 wrote postproc/plsnt_lgr_inset/rasters/sy_lay4.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 
 rcha_0 package...
 irch:
 wrote postproc/plsnt_lgr_inset/rasters/irch_per0.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 recharge:
 wrote postproc/plsnt_lgr_inset/rasters/recharge_per0.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_inset/rasters/recharge_per1.tif
 wrote postproc/plsnt_lgr_inset/rasters/recharge_per2.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_inset/rasters/recharge_per3.tif
 wrote postproc/plsnt_lgr_inset/rasters/recharge_per4.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_inset/rasters/recharge_per5.tif
 wrote postproc/plsnt_lgr_inset/rasters/recharge_per6.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_inset/rasters/recharge_per7.tif
 wrote postproc/plsnt_lgr_inset/rasters/recharge_per8.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_inset/rasters/recharge_per9.tif
 wrote postproc/plsnt_lgr_inset/rasters/recharge_per10.tif
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 wrote postproc/plsnt_lgr_inset/rasters/recharge_per11.tif
 wrote postproc/plsnt_lgr_inset/rasters/recharge_per12.tif
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
 
 sfr_0 package...
 writing postproc/plsnt_lgr_inset/shps/plsnt_lgr_inset.sfr.shp... Done
@@ -1697,36 +1100,15 @@ writing postproc/plsnt_lgr_inset/shps/obs1_stress_period_data.shp... Done
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-summarizing plsnt_lgr_parent input...
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-skipped, not implemented yet
-</pre></div></div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-skipped, not implemented yet
-summarizing plsnt_lgr_inset input...
-</pre></div></div>
-</div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
+summarizing plsnt_lgr_parent input...
+skipped, not implemented yet
+skipped, not implemented yet
+summarizing plsnt_lgr_inset input...
 skipped, not implemented yet
 </pre></div></div>
 </div>
@@ -1745,7 +1127,7 @@ skipped, not implemented yet
 
   <div role="contentinfo">
     <p>&#169; Copyright 2019-2024, Modflow-setup developers |.
-      <span class="lastupdated">Last updated on Feb 15, 2024.
+      <span class="lastupdated">Last updated on May 07, 2024.
       </span></p>
   </div>
 
