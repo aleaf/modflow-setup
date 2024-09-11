@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Interpolating data to the model grid &mdash; modflow-setup 0.5.0.post5+g92efb84 documentation</title>
+  <title>Interpolating data to the model grid &mdash; modflow-setup 0.5.0.post28+gc975392 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../_static/plot_directive.css" />
@@ -15,7 +15,7 @@
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../_static/documentation_options.js?v=3da8c5cb"></script>
+        <script src="../_static/documentation_options.js?v=060dce7f"></script>
         <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -24,7 +24,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Specifying perimeter boundary conditions from another model" href="perimeter-bcs.html" />
+    <link rel="next" title="Local grid refinement" href="lgr.html" />
     <link rel="prev" title="Modflow-setup concepts and methods" href="index.html" /> 
 </head>
 
@@ -40,7 +40,7 @@
             modflow-setup
           </a>
               <div class="version">
-                0.5.0.post5+g92efb84
+                0.5.0.post28+gc975392
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -64,6 +64,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../config-file.html"> The configuration file</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="index.html"> Concepts and methods</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Interpolation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lgr.html">Local grid refinement</a></li>
 <li class="toctree-l2"><a class="reference internal" href="perimeter-bcs.html">     Specifying perimeter boundary conditions</a></li>
 </ul>
 </li>
@@ -111,7 +112,7 @@
              
   <section id="interpolating-data-to-the-model-grid">
 <h1>Interpolating data to the model grid<a class="headerlink" href="#interpolating-data-to-the-model-grid" title="Link to this heading">¶</a></h1>
-<p>For most interpolation operations where geo-located data are sampled to the model grid, Modflow-setup uses a barycentric (triangular) interpolation scheme similar to <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html#scipy.interpolate.griddata" title="(in SciPy v1.13.0)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.interpolate.griddata()</span></code></a>. This n-dimensional unstructured method allows for interpolation between grids that are aligned with different coordinate references systems, as well as interpolation between unstructured grids. As described <a class="reference external" href="https://stackoverflow.com/questions/20915502/speedup-scipy-griddata-for-multiple-interpolations-between-two-irregular-grids">here</a>, setup of the barycentric interpolation involves:</p>
+<p>For most interpolation operations where geo-located data are sampled to the model grid, Modflow-setup uses a barycentric (triangular) interpolation scheme similar to <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html#scipy.interpolate.griddata" title="(in SciPy v1.14.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.interpolate.griddata()</span></code></a>. This n-dimensional unstructured method allows for interpolation between grids that are aligned with different coordinate references systems, as well as interpolation between unstructured grids. As described <a class="reference external" href="https://stackoverflow.com/questions/20915502/speedup-scipy-griddata-for-multiple-interpolations-between-two-irregular-grids">here</a>, setup of the barycentric interpolation involves:</p>
 <blockquote>
 <div><ol class="arabic simple">
 <li><p>Construction of a triangular mesh linking the source points</p></li>
@@ -124,7 +125,7 @@
 <dl>
 <dt>A few more notes:</dt><dd><ul class="simple">
 <li><p>Linear interpolation is the default method in most instances, except for recharge, which is often based on categorical data such as land cover and soil types, and therefore has nearest-neighbor as the default method.</p></li>
-<li><p>The interpolation method can generally be specified explicitly for a given dataset by including a <code class="docutils literal notranslate"><span class="pre">resample_method</span></code> argument. Available methods are listed in the documentation for <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html#scipy.interpolate.griddata" title="(in SciPy v1.13.0)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.interpolate.griddata()</span></code></a>. For example, if we wanted to override the <code class="docutils literal notranslate"><span class="pre">'nearest'</span></code> default for the Recharge Package:</p></li>
+<li><p>The interpolation method can generally be specified explicitly for a given dataset by including a <code class="docutils literal notranslate"><span class="pre">resample_method</span></code> argument. Available methods are listed in the documentation for <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.griddata.html#scipy.interpolate.griddata" title="(in SciPy v1.14.1)"><code class="xref py py-func docutils literal notranslate"><span class="pre">scipy.interpolate.griddata()</span></code></a>. For example, if we wanted to override the <code class="docutils literal notranslate"><span class="pre">'nearest'</span></code> default for the Recharge Package:</p></li>
 </ul>
 <div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">rch</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">options</span><span class="p">:</span>
@@ -155,14 +156,14 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="index.html" class="btn btn-neutral float-left" title="Modflow-setup concepts and methods" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="perimeter-bcs.html" class="btn btn-neutral float-right" title="Specifying perimeter boundary conditions from another model" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="lgr.html" class="btn btn-neutral float-right" title="Local grid refinement" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
     <p>&#169; Copyright 2019-2024, Modflow-setup developers |.
-      <span class="lastupdated">Last updated on May 07, 2024.
+      <span class="lastupdated">Last updated on Sep 11, 2024.
       </span></p>
   </div>
 

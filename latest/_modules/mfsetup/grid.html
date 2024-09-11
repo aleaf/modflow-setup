@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mfsetup.grid &mdash; modflow-setup 0.5.0.post5+g92efb84 documentation</title>
+  <title>mfsetup.grid &mdash; modflow-setup 0.5.0.post28+gc975392 documentation</title>
       <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
       <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
       <link rel="stylesheet" type="text/css" href="../../_static/plot_directive.css" />
@@ -14,7 +14,7 @@
     <script src="../../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-        <script src="../../_static/documentation_options.js?v=3da8c5cb"></script>
+        <script src="../../_static/documentation_options.js?v=060dce7f"></script>
         <script src="../../_static/doctools.js?v=9a2dae69"></script>
         <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
@@ -37,7 +37,7 @@
             modflow-setup
           </a>
               <div class="version">
-                0.5.0.post5+g92efb84
+                0.5.0.post28+gc975392
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -782,7 +782,7 @@
 <div class="viewcode-block" id="rasterize">
 <a class="viewcode-back" href="../../api/mfsetup.grid.html#mfsetup.grid.rasterize">[docs]</a>
 <span class="k">def</span> <span class="nf">rasterize</span><span class="p">(</span><span class="n">feature</span><span class="p">,</span> <span class="n">grid</span><span class="p">,</span> <span class="n">id_column</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-              <span class="n">include_ids</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names_column</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+              <span class="n">include_ids</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">exclude_ids</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">names_column</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
               <span class="n">crs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Rasterize a feature onto the model grid, using</span>
 <span class="sd">    the rasterio.features.rasterize method. Features are intersected</span>
@@ -797,6 +797,8 @@
 <span class="sd">        from this column will be assigned to the output raster.</span>
 <span class="sd">    include_ids : sequence</span>
 <span class="sd">        Subset of IDs in id_column to include</span>
+<span class="sd">    exclude_ids : sequence</span>
+<span class="sd">        Subset of IDs in id_column to exclude</span>
 <span class="sd">    names_column : str, optional</span>
 <span class="sd">        By default, the IDs in id_column, or sequential integers</span>
 <span class="sd">        are returned. This option allows another column of strings</span>
@@ -886,7 +888,8 @@
     <span class="c1"># subset to include_ids</span>
     <span class="k">if</span> <span class="n">id_column</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">include_ids</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="n">id_column</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">include_ids</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-
+    <span class="k">if</span> <span class="n">id_column</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">exclude_ids</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="o">~</span><span class="n">df</span><span class="p">[</span><span class="n">id_column</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">exclude_ids</span><span class="p">)]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="c1"># create list of GeoJSON features, with unique value for each feature</span>
     <span class="k">if</span> <span class="n">id_column</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">numbers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
@@ -1140,14 +1143,14 @@
     <span class="k">if</span> <span class="n">parent_model</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">snap_to_parent</span><span class="p">:</span>
         <span class="n">to_grid_units_parent</span> <span class="o">=</span> <span class="n">convert_length_units</span><span class="p">(</span><span class="n">get_model_length_units</span><span class="p">(</span><span class="n">parent_model</span><span class="p">),</span> <span class="n">grid_units</span><span class="p">)</span>
         <span class="c1"># parent model grid spacing in meters</span>
-        <span class="n">parent_delr_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">parent_model</span><span class="o">.</span><span class="n">dis</span><span class="o">.</span><span class="n">delr</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">to_grid_units_parent</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">parent_delr_grid</span> <span class="o">%</span> <span class="n">delr_grid</span> <span class="o">%</span> <span class="n">parent_delr_grid</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;inset delr spacing of </span><span class="si">{}</span><span class="s1"> must be factor of parent spacing of </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">delr_grid</span><span class="p">,</span>
-                                                                                                      <span class="n">parent_delr_grid</span><span class="p">))</span>
-        <span class="n">parent_delc_grid</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="n">parent_model</span><span class="o">.</span><span class="n">dis</span><span class="o">.</span><span class="n">delc</span><span class="o">.</span><span class="n">array</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">to_grid_units_parent</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="n">parent_delc_grid</span> <span class="o">%</span> <span class="n">delc_grid</span> <span class="o">%</span> <span class="n">parent_delc_grid</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;inset delc spacing of </span><span class="si">{}</span><span class="s1"> must be factor of parent spacing of </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">delc_grid</span><span class="p">,</span>
-                                                                                                      <span class="n">parent_delc_grid</span><span class="p">))</span>
+        <span class="c1">#parent_delr_grid = np.round(parent_model.dis.delr.array[0] * to_grid_units_parent, 4)</span>
+        <span class="c1">#if not parent_delr_grid % delr_grid % parent_delr_grid == 0:</span>
+        <span class="c1">#    raise ValueError(&#39;inset delr spacing of {} must be factor of parent spacing of {}&#39;.format(delr_grid,</span>
+        <span class="c1">#                                                                                              parent_delr_grid))</span>
+        <span class="c1">#parent_delc_grid = np.round(parent_model.dis.delc.array[0] * to_grid_units_parent, 4)</span>
+        <span class="c1">#if not parent_delc_grid % delc_grid % parent_delc_grid == 0:</span>
+        <span class="c1">#    raise ValueError(&#39;inset delc spacing of {} must be factor of parent spacing of {}&#39;.format(delc_grid,</span>
+        <span class="c1">#                                                                                              parent_delc_grid))</span>
 
     <span class="c1"># option 1: make grid from xoff, yoff and specified dimensions</span>
     <span class="k">if</span> <span class="n">xoff</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">yoff</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -1211,6 +1214,10 @@
                 <span class="n">df</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">crs</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
             <span class="c1"># use all features by default</span>
             <span class="n">features</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">features</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">features_shapefile</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;setup_grid: need one of xoff/yoff, xul/yul, features_shapefile or &quot;</span>
+                <span class="s2">&quot;features inputs&quot;</span><span class="p">)</span>
         <span class="c1"># alternatively, accept features as an argument</span>
         <span class="c1"># convert multiple features to a MultiPolygon</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
@@ -1487,7 +1494,7 @@
 
   <div role="contentinfo">
     <p>&#169; Copyright 2019-2024, Modflow-setup developers |.
-      <span class="lastupdated">Last updated on May 07, 2024.
+      <span class="lastupdated">Last updated on Sep 11, 2024.
       </span></p>
   </div>
 
