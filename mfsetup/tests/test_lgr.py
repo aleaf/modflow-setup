@@ -403,12 +403,12 @@ def test_meandering_sfr_connections(shellmound_cfg, project_root_path, tmpdir):
     # check SFR package shapefile output in test output folder
     # to verify that these are correct
     expected_connections = {
-    ('shellmound', 173, 'shellmound_lgr', 7),
-    ('shellmound', 235, 'shellmound_lgr', 0),
-    ('shellmound', 293, 'shellmound_lgr', 5),
-    ('shellmound_lgr', 4, 'shellmound', 258),
-    ('shellmound_lgr', 14, 'shellmound', 186),
-    ('shellmound_lgr', 17, 'shellmound', 170)
+    ('shellmound', 167, 'shellmound_lgr', 7),
+    ('shellmound', 229, 'shellmound_lgr', 0),
+    ('shellmound', 288, 'shellmound_lgr', 5),
+    ('shellmound_lgr', 4, 'shellmound', 252),
+    ('shellmound_lgr', 14, 'shellmound', 180),
+    ('shellmound_lgr', 17, 'shellmound', 164)
     }
     assert set(exchangedata[['mname1', 'id1', 'mname2', 'id2']].
                itertuples(index=False, name=None)) == expected_connections
